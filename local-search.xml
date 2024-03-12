@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>posts</title>
+    <link href="/2024/03/07/posts/"/>
+    <url>/2024/03/07/posts/</url>
+    
+    <content type="html"><![CDATA[<p>$$<br>a b \le \frac{a^2+b^2}{2}<br>$$</p><p>$$<br>\lim_{z\to\infty}a &#x3D;0<br>$$</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>test latex</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>HELLO</title>
     <link href="/2024/03/06/HELLO/"/>
     <url>/2024/03/06/HELLO/</url>
