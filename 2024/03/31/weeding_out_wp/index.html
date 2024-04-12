@@ -1,0 +1,759 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="淘汰赛wpcoopersmith12345678910111213141516171819import gmpy2from secret import flagfrom Crypto.Util.number import *p &#x3D; getPrime(512)q &#x3D; getPrime(512)n &#x3D; p * qe &#x3D; 65537leak &#x3D; p &gt;&gt; 230m &#x3D; bytes_to_lo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hyacinth">
+<meta property="og:url" content="http://example.com/2024/03/31/weeding_out_wp/index.html">
+<meta property="og:site_name" content="Hyacinth">
+<meta property="og:description" content="淘汰赛wpcoopersmith12345678910111213141516171819import gmpy2from secret import flagfrom Crypto.Util.number import *p &#x3D; getPrime(512)q &#x3D; getPrime(512)n &#x3D; p * qe &#x3D; 65537leak &#x3D; p &gt;&gt; 230m &#x3D; bytes_to_lo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-31T10:16:28.945Z">
+<meta property="article:modified_time" content="2024-03-31T10:17:31.699Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Hyacinth</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"dSBDwVALa3ATTUaTPVZCUmxn-gzGzoHsz","app_key":"bgxcaFzMdkCiBvBtTaigCPoi","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Hyacinth&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-31 18:16" pubdate>
+          2024年3月31日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          751 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="淘汰赛wp"><a href="#淘汰赛wp" class="headerlink" title="淘汰赛wp"></a>淘汰赛wp</h1><h2 id="coopersmith"><a href="#coopersmith" class="headerlink" title="coopersmith"></a>coopersmith</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> flag<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><br><br>p = getPrime(<span class="hljs-number">512</span>)<br>q = getPrime(<span class="hljs-number">512</span>)<br>n = p * q<br>e = <span class="hljs-number">65537</span><br>leak = p &gt;&gt; <span class="hljs-number">230</span><br>m = bytes_to_long(flag)<br>c = <span class="hljs-built_in">pow</span>(m, e, n)<br><span class="hljs-built_in">print</span>(n)<br><span class="hljs-built_in">print</span>(leak)<br><span class="hljs-built_in">print</span>(c)<br><br><span class="hljs-comment"># 127487634441822647618921402280922476033495811135773828400328169329293220234120095610909277602078747155947008297834935187621004367643756134843425271809892298184723715973561289754668066516603254420282334094941388978211024661301950244658944432982403835994085656383051504008857560806480682989587000159542043574971</span><br><span class="hljs-comment"># 6078231756815313036870193890028171492100730070094563676243397437648271870084893809022</span><br><span class="hljs-comment"># 41917303148580748123210270152437064001027117042296600625752893484662028891408259680333109968488741007285041041895670863172632555107008206266174839958425512937043436196976931112103741557001942751999066915416294498808245716550493438455247624141216346257702085006987359774579885717399884632151959040337513452315</span><br></code></pre></td></tr></table></figure>
+
+<p>这个题直接将epslion调为0.01即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br>n= <span class="hljs-number">127487634441822647618921402280922476033495811135773828400328169329293220234120095610909277602078747155947008297834935187621004367643756134843425271809892298184723715973561289754668066516603254420282334094941388978211024661301950244658944432982403835994085656383051504008857560806480682989587000159542043574971</span><br>p= <span class="hljs-number">10487603455636619316909786944846467559617828599611305083536157673455794225615777154655562103868807511307400240901255666199622565210361286480346540339753143</span><br>q= <span class="hljs-number">12156031163945632168545435494299106150504297057639698134579866406999652413862781016117168731851976617184154589254282392935992059442124530549086029542240797</span><br>c = <span class="hljs-number">41917303148580748123210270152437064001027117042296600625752893484662028891408259680333109968488741007285041041895670863172632555107008206266174839958425512937043436196976931112103741557001942751999066915416294498808245716550493438455247624141216346257702085006987359774579885717399884632151959040337513452315</span><br>e =<span class="hljs-number">65537</span><br>phi = (p-<span class="hljs-number">1</span>)*(q-<span class="hljs-number">1</span>)<br>d = inverse(e,phi)<br>m = <span class="hljs-built_in">pow</span>(c,d,n)<br><span class="hljs-built_in">print</span>(long_to_bytes(m))<br><span class="hljs-comment">#flag&#123;Welcome_to_the_knockout_rounds_in_February!Enjoy_your_game!&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="论文题"><a href="#论文题" class="headerlink" title="论文题"></a>论文题</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> flag, a, b, c, d, m, n<br><br>p = getPrime(<span class="hljs-number">512</span>)<br>q = getPrime(<span class="hljs-number">512</span>)<br>e = getPrime(<span class="hljs-number">128</span>)<br>N = p * q<br><span class="hljs-keyword">assert</span> <span class="hljs-built_in">pow</span>(a, <span class="hljs-number">2</span>) * m + <span class="hljs-built_in">pow</span>(b, <span class="hljs-number">2</span>) * n == N<br><span class="hljs-keyword">assert</span> <span class="hljs-built_in">pow</span>(c, <span class="hljs-number">2</span>) * m + <span class="hljs-built_in">pow</span>(d, <span class="hljs-number">2</span>) * n == N<br>flag = bytes_to_long(flag)<br>C = <span class="hljs-built_in">pow</span>(flag, e, N)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;C=&quot;</span>, C)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;N=&quot;</span>, N)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;a=&quot;</span>, a)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;b=&quot;</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;c=&quot;</span>, c)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;d=&quot;</span>, d)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;e=&#x27;</span>, e)<br><br><span class="hljs-comment"># C= 26979810735027385765377584703101653413098992546289136573826639005769212422842206974563416466184790997824389126508561113932712410845141909917367671130875947982738176444848673036737964189835669323506119157238526011813209469692144274190041448101974159848598133552490495936849218643373683745066336813353416506165</span><br><span class="hljs-comment"># N= 70043427687738872803871163276488213173780425282753969243938124727004843810522473265066937344440899712569316720945145873584064860810161865485251816597432836666987134938760506657782143983431621481190009008491725207321741725979791393566155990005404328775785526238494554357279069151540867533082875900530405903003</span><br><span class="hljs-comment"># a= 8369195163678456889416121467476480674288621867182572824570660596055739410903686466334448920102666056798356927389728982948229326705483052970212882852055482</span><br><span class="hljs-comment"># b= 25500181489306553053743739056022091355379036380919737553326529889338409847082228856006303427136881468093863020843230477979</span><br><span class="hljs-comment"># c= 8369195163678456889416121462308686152524805984209312455308229689034789710117101859597220211456125364647704791637845189120538925088375209397006380815921158</span><br><span class="hljs-comment"># d= 31448594528370020763962343185054872105044827103889010592635556324009793301024988530934510929565983517651356856506719032859</span><br><span class="hljs-comment"># e= 255348562315891975282864504628198394319</span><br></code></pre></td></tr></table></figure>
+
+<p>下面有一个提示给出了论文</p>
+<p>《A Note on Euler’s Factoring Problem-Brillhart_Euler_factoring_2009》</p>
+<p>然后搜索会得到nss11的一道原题，直接把脚本改一下即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><br>c= <span class="hljs-number">26979810735027385765377584703101653413098992546289136573826639005769212422842206974563416466184790997824389126508561113932712410845141909917367671130875947982738176444848673036737964189835669323506119157238526011813209469692144274190041448101974159848598133552490495936849218643373683745066336813353416506165</span><br>N= <span class="hljs-number">70043427687738872803871163276488213173780425282753969243938124727004843810522473265066937344440899712569316720945145873584064860810161865485251816597432836666987134938760506657782143983431621481190009008491725207321741725979791393566155990005404328775785526238494554357279069151540867533082875900530405903003</span><br><br><br>a0= <span class="hljs-number">8369195163678456889416121467476480674288621867182572824570660596055739410903686466334448920102666056798356927389728982948229326705483052970212882852055482</span><br>a1= <span class="hljs-number">25500181489306553053743739056022091355379036380919737553326529889338409847082228856006303427136881468093863020843230477979</span><br>b0= <span class="hljs-number">8369195163678456889416121462308686152524805984209312455308229689034789710117101859597220211456125364647704791637845189120538925088375209397006380815921158</span><br>b1= <span class="hljs-number">31448594528370020763962343185054872105044827103889010592635556324009793301024988530934510929565983517651356856506719032859</span><br>e= <span class="hljs-number">255348562315891975282864504628198394319</span><br>p = gmpy2.gcd(a0 * b1 - a1 * b0, N)<br>q = N // p<br>phi = (p - <span class="hljs-number">1</span>) * (q - <span class="hljs-number">1</span>)<br>d = gmpy2.invert(e, phi)<br>m = <span class="hljs-built_in">pow</span>(c, d, N)<br>flag = long_to_bytes(m)<br><span class="hljs-built_in">print</span>(flag)<br><span class="hljs-comment">#flag&#123;C0ngratu1ati0ns_0n_f1nding_the_r1ght_art1cle&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="ACD-AND-LCG"><a href="#ACD-AND-LCG" class="headerlink" title="ACD AND LCG"></a>ACD AND LCG</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs PYTHON"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> flag<br><br>flag = bytes_to_long(flag)<br><br>m = getPrime(<span class="hljs-number">512</span>)<br>a = getPrime(<span class="hljs-number">512</span>)<br>b = getPrime(<span class="hljs-number">512</span>)<br>n = <span class="hljs-number">5</span><br>T = <span class="hljs-number">2</span> ** <span class="hljs-number">512</span><br>E = <span class="hljs-number">2</span> ** <span class="hljs-number">64</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):<br>    flag = (a * flag + b) % m<br><br>t = [randint(<span class="hljs-number">1</span>, T) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>e = [randint(<span class="hljs-number">1</span>, E) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>x = [(t[i] * flag + e[i]) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;a =&#x27;</span>, a)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;b =&#x27;</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;m =&#x27;</span>, m)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;x =&#x27;</span>, x)<br><br><span class="hljs-comment"># a = 8701503235714654181185975273305680319448268607104190359674542225022655504341996813364987486169152127280096580678162752030947290834318177794541896954989271</span><br><span class="hljs-comment"># b = 11640974551844877011136648424234569173281653283747272384285516963171073747658473313135494572290659149574841279909831065905755830907871430395394192735120939</span><br><span class="hljs-comment"># m = 7651549587843496463117202160482742226772973264122759524886479760482818128954449531195306323978761655786591285266609745774698650146578870594639510913805479</span><br><span class="hljs-comment"># x = [23563826257718036440881317978673493810188106618102520794655809928555314811814029255966876253402519249737774672905329476492580161006527218026276548977886854950706391688637172839603715626748806618948958120644922647579126548959357008290497206695049760059149700363820646498084623694699472008631562172184210990035, 3113005430387527533023833300074500344357411532196342594002333236043816936302383608121940600702403163729786511802565803292142196335022994287751246769720617053925208039944042040670715259430068885488425648174582570328145049091823098815555090797666441011003507212742628216858263620482201418649823989017197834548, 6685479348073624502298121671534447705198177679782557105411467941369499437275400769469476486244770244844157821246716057708486824467234913104323190236794137920462993829477758373642412459677991492568200799570944294995694562592195858546636130648217228199436582187668528189147363195874596098090285349084227175548, 5239278303771955200403570451522564788180173532702160613414703002800320194961524203966622178324143348005313508702908594363287064236029432480748237226351482819059842053241222649049479134305843222159009334475944430484535918632919061089312813083990061343788537195597234369581898788642048806729865452838925446631, 6925083281090878674631701308341591801761921950839467193956461332365235701986587936731727133742351637156387143047408611637157566826208443914739489121644396744336707147012051411027678283619591917523171947099618995459141630255424338090872202325514203847254434442912426610649523183909748408668183830601718981590]</span><br></code></pre></td></tr></table></figure>
+
+<p>这一题我们看到了这个最终的求解flag是一个LCG的题型，如果flag已知，那么就是a,b,n,c已知求解seed的题型。这样一来我们就明确思路要先去进行求解这个经过原始flag加密五次后的flag。</p>
+<p>而且在题目中还给出了一个等式，</p>
+<p>​	<br>$$<br>x_{i} &#x3D; t_{i}*p+e_{i}<br>$$</p>
+<p>$$<br>因为x_{i}、t_{i}、e_{i}都可以看成是一个矩阵，那么这种形式我们就需要构造格来求解p<br>$$</p>
+<p>那么这里我们就需要用到ACD了。</p>
+<h3 id="ACD"><a href="#ACD" class="headerlink" title="ACD"></a>ACD</h3><p>$$<br>x_{i} &#x3D; q_{i}*p+r_{i}<br>$$</p>
+<p>$$<br>x_{i}已知，p为\alpha位，q_{i}为\beta位，r_{i}为\gamma位(\gamma&lt;&lt;\alpha),求p<br>$$</p>
+<p>我们要构造出如下的格：<br>$$<br>\begin{pmatrix}<br>q_{0},q_{1},\cdots,q_{t}<br>\end{pmatrix}<br>\begin{pmatrix}<br>2^\gamma&amp;x_{1}&amp;x_{2}&amp;\cdots&amp;x_{t}\\<br>0&amp;-x_{0}&amp;0&amp;\cdots&amp;0\\<br>0&amp;0&amp;-x_{0}&amp;\cdots&amp;0\\<br>\vdots &amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\<br>0&amp;0&amp;0&amp;\cdots&amp;-x_{0}</p>
+<p>\end{pmatrix}&#x3D;<br>\begin{pmatrix}<br>q_{0}2^\gamma&amp;q_{0}x_{1}-q_{1}x_{0}&amp;\cdots&amp;q_{0}x_{t}-q_{t}x_{0}<br>\end{pmatrix}&#x3D;<br>\begin{pmatrix}<br>q_{0}2^\gamma&amp;q_{0}r_{1}-q_{1}r_{0}&amp;\cdots&amp;q_{0}r_{t}-q_{t}r_{0}<br>\end{pmatrix}<br>$$</p>
+<p>$$<br>记 A\cdot M &#x3D;B<br>$$</p>
+<p>$$<br>使用LLL算法reduce后得到q_{0}2^\gamma<br>$$</p>
+<h4 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#sage</span><br>a = <span class="hljs-number">8701503235714654181185975273305680319448268607104190359674542225022655504341996813364987486169152127280096580678162752030947290834318177794541896954989271</span><br>b = <span class="hljs-number">11640974551844877011136648424234569173281653283747272384285516963171073747658473313135494572290659149574841279909831065905755830907871430395394192735120939</span><br>m = <span class="hljs-number">7651549587843496463117202160482742226772973264122759524886479760482818128954449531195306323978761655786591285266609745774698650146578870594639510913805479</span><br>x = [<span class="hljs-number">23563826257718036440881317978673493810188106618102520794655809928555314811814029255966876253402519249737774672905329476492580161006527218026276548977886854950706391688637172839603715626748806618948958120644922647579126548959357008290497206695049760059149700363820646498084623694699472008631562172184210990035</span>, <span class="hljs-number">3113005430387527533023833300074500344357411532196342594002333236043816936302383608121940600702403163729786511802565803292142196335022994287751246769720617053925208039944042040670715259430068885488425648174582570328145049091823098815555090797666441011003507212742628216858263620482201418649823989017197834548</span>, <span class="hljs-number">6685479348073624502298121671534447705198177679782557105411467941369499437275400769469476486244770244844157821246716057708486824467234913104323190236794137920462993829477758373642412459677991492568200799570944294995694562592195858546636130648217228199436582187668528189147363195874596098090285349084227175548</span>, <span class="hljs-number">5239278303771955200403570451522564788180173532702160613414703002800320194961524203966622178324143348005313508702908594363287064236029432480748237226351482819059842053241222649049479134305843222159009334475944430484535918632919061089312813083990061343788537195597234369581898788642048806729865452838925446631</span>, <span class="hljs-number">6925083281090878674631701308341591801761921950839467193956461332365235701986587936731727133742351637156387143047408611637157566826208443914739489121644396744336707147012051411027678283619591917523171947099618995459141630255424338090872202325514203847254434442912426610649523183909748408668183830601718981590</span>]<br>r = <span class="hljs-number">64</span><br>A = [[<span class="hljs-number">2</span>**<span class="hljs-number">64</span>,x[<span class="hljs-number">1</span>],x[<span class="hljs-number">2</span>],x[<span class="hljs-number">3</span>],x[<span class="hljs-number">4</span>]],<br>     [<span class="hljs-number">0</span>,-x[<span class="hljs-number">0</span>],<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>],<br>     [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,-x[<span class="hljs-number">0</span>],<span class="hljs-number">0</span>,<span class="hljs-number">0</span>],<br>     [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,-x[<span class="hljs-number">0</span>],<span class="hljs-number">0</span>],<br>     [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,-x[<span class="hljs-number">0</span>]]]<br>A = Matrix(ZZ,A)    <br>A.LLL()<br>q0 = <span class="hljs-built_in">abs</span>(lis[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]//<span class="hljs-number">2</span>**<span class="hljs-number">64</span>)<br>p =x[<span class="hljs-number">0</span>]//q0<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">import</span> gmpy2<br>a =  <span class="hljs-number">8701503235714654181185975273305680319448268607104190359674542225022655504341996813364987486169152127280096580678162752030947290834318177794541896954989271</span><br>b =  <span class="hljs-number">11640974551844877011136648424234569173281653283747272384285516963171073747658473313135494572290659149574841279909831065905755830907871430395394192735120939</span><br>n =  <span class="hljs-number">7651549587843496463117202160482742226772973264122759524886479760482818128954449531195306323978761655786591285266609745774698650146578870594639510913805479</span><br><br>ans = gmpy2.invert(a,n)<br>seed = p <br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):<br>    seed = (ans*(seed - b)) % n <br>flag = long_to_bytes(seed)<br><span class="hljs-built_in">print</span>(flag)<br><span class="hljs-comment">#flag&#123;ACD_and_LCG_are_go0d_fri3nds&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="DSA"><a href="#DSA" class="headerlink" title="DSA"></a>DSA</h2>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2024/03/31/weeding_out_wp/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月31日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/04/12/python_practice2/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/03/19/stack/" title="stack">
+                        <span class="hidden-mobile">stack</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"dSBDwVALa3ATTUaTPVZCUmxn-gzGzoHsz","appKey":"bgxcaFzMdkCiBvBtTaigCPoi","path":"window.location.pathname","placeholder":"爽言畅谈","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         次
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
