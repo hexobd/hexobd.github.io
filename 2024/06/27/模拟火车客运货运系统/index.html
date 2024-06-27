@@ -1,0 +1,842 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="模拟火车客运货运系统提出过程：​	临近期末放假回家，外地的学生都避免不了一个购票抢票的话题，再加上这一个学期的所学知识，于是便想出了要去做出一个客运货运的查票系统，便于我们了解车票，然后进行设计购票。 项目的概述和功能分析1这个项目里面通过使用了Tkinter 模块设计出一个登录的GUI界面，但是后面的每一项具体的选择后的结果仍是在编译器里面进行。在这个项目中，同时还运用了Geo画出了中国地图并赋">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模拟火车客运货运系统">
+<meta property="og:url" content="http://example.com/2024/06/27/%E6%A8%A1%E6%8B%9F%E7%81%AB%E8%BD%A6%E5%AE%A2%E8%BF%90%E8%B4%A7%E8%BF%90%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Hyacinth">
+<meta property="og:description" content="模拟火车客运货运系统提出过程：​	临近期末放假回家，外地的学生都避免不了一个购票抢票的话题，再加上这一个学期的所学知识，于是便想出了要去做出一个客运货运的查票系统，便于我们了解车票，然后进行设计购票。 项目的概述和功能分析1这个项目里面通过使用了Tkinter 模块设计出一个登录的GUI界面，但是后面的每一项具体的选择后的结果仍是在编译器里面进行。在这个项目中，同时还运用了Geo画出了中国地图并赋">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667bd062adc29.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667bcf7ddef51.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667bd4e58f5ac.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667bd5570e0ca.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/25/667ad6cf945d0.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/25/667ad70acc4da.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/25/667ad7613a410.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/25/667ad78d8d0f5.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/25/667ad9c4a7584.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667c0cf62997a.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/25/667adb684508a.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667c0d974e4a8.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667c0ddd349a3.png">
+<meta property="og:image" content="c:\Users\platycodon\AppData\Roaming\Typora\typora-user-images\image-20240626204844488.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/25/667adf4b619c6.png">
+<meta property="og:image" content="c:\Users\platycodon\AppData\Roaming\Typora\typora-user-images\image-20240625233623070.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667c0f10d67b7.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667b974d738f2.png">
+<meta property="og:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667b983878760.png">
+<meta property="article:published_time" content="2024-06-27T02:18:16.000Z">
+<meta property="article:modified_time" content="2024-06-27T02:20:05.915Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://krseoul.imgtbl.com/i/2024/06/26/667bd062adc29.png">
+  
+  
+  
+  <title>模拟火车客运货运系统 - Hyacinth</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"dSBDwVALa3ATTUaTPVZCUmxn-gzGzoHsz","app_key":"bgxcaFzMdkCiBvBtTaigCPoi","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Hyacinth&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="模拟火车客运货运系统"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-27 10:18" pubdate>
+          2024年6月27日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          42 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">模拟火车客运货运系统</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="模拟火车客运货运系统"><a href="#模拟火车客运货运系统" class="headerlink" title="模拟火车客运货运系统"></a>模拟火车客运货运系统</h1><h6 id="提出过程："><a href="#提出过程：" class="headerlink" title="提出过程："></a>提出过程：</h6><p>​	临近期末放假回家，外地的学生都避免不了一个购票抢票的话题，再加上这一个学期的所学知识，于是便想出了要去做出一个客运货运的查票系统，便于我们了解车票，然后进行设计购票。</p>
+<h5 id="项目的概述和功能分析"><a href="#项目的概述和功能分析" class="headerlink" title="项目的概述和功能分析"></a>项目的概述和功能分析</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">这个项目里面通过使用了Tkinter 模块设计出一个登录的GUI界面，但是后面的每一项具体的选择后的结果仍是在编译器里面进行。在这个项目中，同时还运用了Geo画出了中国地图并赋予特定城市的AQI指数，然后还通过matploitlib实现了不同城市的天气预报的最高最低气温的柱状图。同时还赋予了一个货运功能，这样便于通过里程数大致估算出寄件所需要的钱数，注意的是两城市间的距离是根据经纬度坐标算出的直线距离，这里会存在误差。<br></code></pre></td></tr></table></figure>
+
+<h5 id="数据存储："><a href="#数据存储：" class="headerlink" title="数据存储："></a>数据存储：</h5><p>​	这个项目直接简单的把txt文件当成一个数据库，把生成的数据用json格式写入。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> datetime<br><br>start = [<span class="hljs-string">&quot;北京&quot;</span>, <span class="hljs-string">&quot;上海&quot;</span>, <span class="hljs-string">&quot;广州&quot;</span>, <span class="hljs-string">&quot;深圳&quot;</span>, <span class="hljs-string">&quot;成都&quot;</span>, <span class="hljs-string">&quot;武汉&quot;</span>, <span class="hljs-string">&quot;西安&quot;</span>, <span class="hljs-string">&quot;郑州&quot;</span>, <span class="hljs-string">&quot;厦门&quot;</span>, <span class="hljs-string">&quot;南京&quot;</span>, <span class="hljs-string">&quot;济南&quot;</span>]<br>destination = [<span class="hljs-string">&quot;北京&quot;</span>, <span class="hljs-string">&quot;上海&quot;</span>, <span class="hljs-string">&quot;广州&quot;</span>, <span class="hljs-string">&quot;深圳&quot;</span>, <span class="hljs-string">&quot;成都&quot;</span>, <span class="hljs-string">&quot;武汉&quot;</span>, <span class="hljs-string">&quot;西安&quot;</span>, <span class="hljs-string">&quot;郑州&quot;</span>, <span class="hljs-string">&quot;厦门&quot;</span>, <span class="hljs-string">&quot;南京&quot;</span>, <span class="hljs-string">&quot;济南&quot;</span>]<br>train_prefixes = [<span class="hljs-string">&quot;G&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;Z&quot;</span>, <span class="hljs-string">&quot;K&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;T&quot;</span>]<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">generate_info</span>():<br>    start_place = random.choice(start)<br>    destination_place = random.choice(destination)<br>    start_date = datetime.datetime.now().replace(year=<span class="hljs-number">2024</span>, month=random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">12</span>), day=random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">28</span>),<br>                                                 hour=random.randint(<span class="hljs-number">7</span>, <span class="hljs-number">23</span>), minute=random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">59</span>), second=<span class="hljs-number">0</span>,<br>                                                 microsecond=<span class="hljs-number">0</span>)<br>    final_state = start_date + datetime.timedelta(hours=random.randint(<span class="hljs-number">2</span>, <span class="hljs-number">24</span>), minutes=random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">59</span>))<br>    train_turn = random.choice(train_prefixes) + <span class="hljs-built_in">str</span>(random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">9999</span>))<br>    price = random.randint(<span class="hljs-number">100</span>, <span class="hljs-number">1200</span>)<br>    <span class="hljs-keyword">return</span> train_turn, price, start_place, destination_place, start_date, final_state<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">reasonable_data</span>(<span class="hljs-params">train_turn, price, start_date, final_state</span>):<br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;G&#x27;</span> <span class="hljs-keyword">in</span> train_turn:<br>        <span class="hljs-keyword">if</span> final_state - start_date &gt; datetime.timedelta(hours=<span class="hljs-number">12</span>, minutes=<span class="hljs-number">59</span>):<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">elif</span> price &lt;= <span class="hljs-number">400</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;Z&#x27;</span> <span class="hljs-keyword">in</span> train_turn:<br>        <span class="hljs-keyword">if</span> price &gt; <span class="hljs-number">600</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;K&#x27;</span> <span class="hljs-keyword">in</span> train_turn:<br>        <span class="hljs-keyword">if</span> price &gt; <span class="hljs-number">500</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;C&#x27;</span> <span class="hljs-keyword">in</span> train_turn:<br>        <span class="hljs-keyword">if</span> price &gt; <span class="hljs-number">200</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">elif</span> <span class="hljs-string">&#x27;T&#x27;</span> <span class="hljs-keyword">in</span> train_turn:<br>        <span class="hljs-keyword">if</span> price &gt; <span class="hljs-number">500</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;C:\\Users\\platycodon\\Desktop\\schedule.txt&quot;</span>, <span class="hljs-string">&#x27;w&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> fp:<br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1000</span>):<br>        train_turn, price, start_place, destination_place, start_date, final_state = generate_info()<br>        <span class="hljs-keyword">if</span> reasonable_data(train_turn, price, start_date, final_state) == <span class="hljs-literal">True</span>:<br>            res = (<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;train_turn&#125;</span> <span class="hljs-subst">&#123;price&#125;</span> <span class="hljs-subst">&#123;start_place&#125;</span>--&gt;<span class="hljs-subst">&#123;destination_place&#125;</span> <span class="hljs-subst">&#123;start_date&#125;</span> <span class="hljs-subst">&#123;final_state&#125;</span>\n&quot;</span>)<br>            fp.write(res)<br><br><span class="hljs-comment"># 用于获取空气质量的数据信息</span><br><span class="hljs-comment"># import akshare as ak</span><br><span class="hljs-comment"># import pandas as pd</span><br><span class="hljs-comment"># crypto_js_spot_df = ak.air_quality_rank()</span><br><span class="hljs-comment"># pd.set_option(&#x27;display.max_rows&#x27;, None) # 显示全部行</span><br><span class="hljs-comment"># pd.set_option(&#x27;display.max_columns&#x27;, None) # 显示全部列</span><br><span class="hljs-comment"># print(crypto_js_spot_df)</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/26/667bd062adc29.png" srcset="/img/loading.gif" lazyload alt="1719390302657.png"></p>
+<p>还有登陆密码的存储也是修改读入到其中：</p>
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/26/667bcf7ddef51.png" srcset="/img/loading.gif" lazyload alt="1719390075105.png"></p>
+<p>对于列车信息后来我们使用了爬虫进行获取，但是鉴于测试代码阶段，并没用获得的真实的数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">from</span> openpyxl <span class="hljs-keyword">import</span> Workbook<br><span class="hljs-keyword">from</span> prettytable <span class="hljs-keyword">import</span> PrettyTable<br><span class="hljs-keyword">from</span> save_city_list <span class="hljs-keyword">import</span> get_city_data<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">GetTrains</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, date, begin_id, end_id</span>):<br>        <span class="hljs-comment"># 请求的目标链接</span><br>        self.url = <span class="hljs-string">&quot;https://kyfw.12306.cn/otn/leftTicket/query&quot;</span><br>        <span class="hljs-comment"># cookies</span><br>        self.cookies = &#123;<br>            <span class="hljs-string">&#x27;_uab_collina&#x27;</span>: <span class="hljs-string">&#x27;171324859263120074949415&#x27;</span>,<br>            <span class="hljs-string">&#x27;JSESSIONID&#x27;</span>: <span class="hljs-string">&#x27;708D9C6917F9858184F462E86DC45BD0&#x27;</span>,<br>            <span class="hljs-string">&#x27;_jc_save_fromStation&#x27;</span>: <span class="hljs-string">&#x27;%u82CF%u5DDE%2CSZH&#x27;</span>,<br>            <span class="hljs-string">&#x27;_jc_save_toStation&#x27;</span>: <span class="hljs-string">&#x27;%u6C5D%u5DDE%2CROF&#x27;</span>,<br>            <span class="hljs-string">&#x27;_jc_save_fromDate&#x27;</span>: <span class="hljs-string">&#x27;2024-04-30&#x27;</span>,<br>            <span class="hljs-string">&#x27;_jc_save_wfdc_flag&#x27;</span>: <span class="hljs-string">&#x27;dc&#x27;</span>,<br>            <span class="hljs-string">&#x27;route&#x27;</span>: <span class="hljs-string">&#x27;9036359bb8a8a461c164a04f8f50b252&#x27;</span>,<br>            <span class="hljs-string">&#x27;BIGipServerotn&#x27;</span>: <span class="hljs-string">&#x27;1172832522.24610.0000&#x27;</span>,<br>            <span class="hljs-string">&#x27;BIGipServerpassport&#x27;</span>: <span class="hljs-string">&#x27;854065418.50215.0000&#x27;</span>,<br>            <span class="hljs-string">&#x27;guidesStatus&#x27;</span>: <span class="hljs-string">&#x27;off&#x27;</span>,<br>            <span class="hljs-string">&#x27;highContrastMode&#x27;</span>: <span class="hljs-string">&#x27;defaltMode&#x27;</span>,<br>            <span class="hljs-string">&#x27;cursorStatus&#x27;</span>: <span class="hljs-string">&#x27;off&#x27;</span>,<br>            <span class="hljs-string">&#x27;_jc_save_toDate&#x27;</span>: <span class="hljs-string">&#x27;2024-04-30&#x27;</span>,<br>        &#125;<br>        <span class="hljs-comment"># 构建请求头</span><br>        self.headers = &#123;<br>            <span class="hljs-string">&#x27;Accept&#x27;</span>: <span class="hljs-string">&#x27;*/*&#x27;</span>,<br>            <span class="hljs-string">&#x27;Accept-Language&#x27;</span>: <span class="hljs-string">&#x27;zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6,zh-TW;q=0.5&#x27;</span>,<br>            <span class="hljs-string">&#x27;Cache-Control&#x27;</span>: <span class="hljs-string">&#x27;no-cache&#x27;</span>,<br>            <span class="hljs-string">&#x27;Connection&#x27;</span>: <span class="hljs-string">&#x27;keep-alive&#x27;</span>,<br>            <span class="hljs-string">&#x27;If-Modified-Since&#x27;</span>: <span class="hljs-string">&#x27;0&#x27;</span>,<br>            <span class="hljs-string">&#x27;Pragma&#x27;</span>: <span class="hljs-string">&#x27;no-cache&#x27;</span>,<br>            <span class="hljs-string">&#x27;Referer&#x27;</span>: <span class="hljs-string">&#x27;https://www.12306.cn/index/index.html&#x27;</span>,<br>            <span class="hljs-string">&#x27;User-Agent&#x27;</span>: <span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0&#x27;</span>,<br>            <span class="hljs-string">&#x27;X-Requested-With&#x27;</span>: <span class="hljs-string">&#x27;XMLHttpRequest&#x27;</span>,<br>        &#125;<br>        <span class="hljs-comment"># 构建请求所需参数</span><br>        self.params = &#123;<br>            <span class="hljs-string">&quot;leftTicketDTO.train_date&quot;</span>: date,<br>            <span class="hljs-string">&quot;leftTicketDTO.from_station&quot;</span>: begin_id,<br>            <span class="hljs-string">&quot;leftTicketDTO.to_station&quot;</span>: end_id,<br>            <span class="hljs-string">&quot;purpose_codes&quot;</span>: <span class="hljs-string">&quot;ADULT&quot;</span><br>        &#125;<br>        <span class="hljs-comment"># 实例化美化表格对象</span><br>        self.pt = PrettyTable()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-comment"># 对目标网址发送请求</span><br>        res = requests.get(<br>            self.url, headers=self.headers, params=self.params, cookies=self.cookies<br>        ).json()<br>        data_list = res[<span class="hljs-string">&#x27;data&#x27;</span>][<span class="hljs-string">&#x27;result&#x27;</span>]<br>        <span class="hljs-comment"># 构造表格的表头，用于展示和保存</span><br>        header_list = [<br>            [<span class="hljs-string">&#x27;车次&#x27;</span>, <span class="hljs-string">&#x27;出发时间&#x27;</span>, <span class="hljs-string">&#x27;到达时间&#x27;</span>, <span class="hljs-string">&#x27;历时&#x27;</span>, <span class="hljs-string">&#x27;商务座&#x27;</span>, <span class="hljs-string">&#x27;一等座&#x27;</span>, <span class="hljs-string">&#x27;二等座&#x27;</span>, <span class="hljs-string">&#x27;软卧&#x27;</span>, <span class="hljs-string">&#x27;硬卧&#x27;</span>, <span class="hljs-string">&#x27;硬座&#x27;</span>, <span class="hljs-string">&#x27;无座&#x27;</span>, <span class="hljs-string">&#x27;备注&#x27;</span>]<br>        ]<br>        <span class="hljs-comment"># 将表头信息添加进展示表格的表头</span><br>        self.pt.field_names = header_list[<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> data_list:<br>            <span class="hljs-comment"># 格式化添加表数据</span><br>            trains_msg = self.format_data(data)<br>            <span class="hljs-comment"># 将数据添加进列表，用于保存</span><br>            header_list.append(trains_msg)<br>        <span class="hljs-comment"># 打印表格</span><br>        <span class="hljs-built_in">print</span>(self.pt)<br>        <span class="hljs-comment"># 返回车次信息列表</span><br>        <span class="hljs-keyword">return</span> header_list<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">format_data</span>(<span class="hljs-params">self, data</span>):<br>        <span class="hljs-comment"># 将返回的数据以&#x27;|&#x27;进行分隔</span><br>        all_data_list = data.split(<span class="hljs-string">&#x27;|&#x27;</span>)<br>        <span class="hljs-comment"># 提取车次的信息</span><br>        trains_msg = [<br>            all_data_list[<span class="hljs-number">3</span>],<br>            all_data_list[<span class="hljs-number">8</span>],<br>            all_data_list[<span class="hljs-number">9</span>],<br>            all_data_list[<span class="hljs-number">10</span>],<br>            all_data_list[<span class="hljs-number">32</span>] <span class="hljs-keyword">if</span> all_data_list[<span class="hljs-number">32</span>] != <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;--&quot;</span>,<br>            all_data_list[<span class="hljs-number">31</span>] <span class="hljs-keyword">if</span> all_data_list[<span class="hljs-number">31</span>] != <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;--&quot;</span>,<br>            all_data_list[<span class="hljs-number">30</span>] <span class="hljs-keyword">if</span> all_data_list[<span class="hljs-number">30</span>] != <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;--&quot;</span>,<br>            all_data_list[<span class="hljs-number">23</span>] <span class="hljs-keyword">if</span> all_data_list[<span class="hljs-number">23</span>] != <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;--&quot;</span>,<br>            all_data_list[<span class="hljs-number">28</span>] <span class="hljs-keyword">if</span> all_data_list[<span class="hljs-number">28</span>] != <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;--&quot;</span>,<br>            all_data_list[<span class="hljs-number">29</span>] <span class="hljs-keyword">if</span> all_data_list[<span class="hljs-number">29</span>] != <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;--&quot;</span>,<br>            all_data_list[<span class="hljs-number">26</span>] <span class="hljs-keyword">if</span> all_data_list[<span class="hljs-number">26</span>] != <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;--&quot;</span>,<br>            all_data_list[<span class="hljs-number">1</span>] <span class="hljs-keyword">if</span> all_data_list[<span class="hljs-number">1</span>] != <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;--&quot;</span><br>        ]<br>        <span class="hljs-comment"># 增添表内容</span><br>        self.pt.add_row(trains_msg)<br>        <span class="hljs-comment"># 将提取的信息返回，用于保存</span><br>        <span class="hljs-keyword">return</span> trains_msg<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">save_data</span>(<span class="hljs-params">self, trains_data_list, date, begin, end</span>):<br>        num = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;如果展示不清晰，需要保存时请扣1：&quot;</span>)<br>        <span class="hljs-keyword">if</span> num == <span class="hljs-string">&quot;1&quot;</span>:<br>            wb = Workbook()<br>            sheet = wb.create_sheet(<span class="hljs-string">&quot;车次信息&quot;</span>, -<span class="hljs-number">1</span>)<br>            <span class="hljs-comment"># 遍历表格索引，写入数据</span><br>            <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(trains_data_list)):<br>                <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(trains_data_list[x])):<br>                    sheet.cell(x + <span class="hljs-number">1</span>, y + <span class="hljs-number">1</span>).value = trains_data_list[x][y]<br>            wb.save(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;date&#125;</span>_<span class="hljs-subst">&#123;begin&#125;</span>_<span class="hljs-subst">&#123;end&#125;</span>.xlsx&quot;</span>)<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;数据保存完成！&quot;</span>)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-comment"># 更新城市对应的英文代码，需要时再启用</span><br>    <span class="hljs-comment"># get_city_data()</span><br>    date = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入出发日期(YYYY-MM-DD)：&quot;</span>)<br>    begin = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入出发地：&quot;</span>)<br>    end = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入目的地：&quot;</span>)<br>    <span class="hljs-comment"># 读取生成的json文件</span><br>    city_list = json.load(<span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;city_data.json&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>))<br>    <span class="hljs-comment"># 获取城市对应的英文代码</span><br>    begin_id = city_list[begin]<br>    end_id = city_list[end]<br>    gt = GetTrains(date, begin_id, end_id)<br>    trains_data_list = gt.run()<br>    <span class="hljs-comment"># 是否需要保存数据</span><br>    gt.save_data(trains_data_list, date, begin, end)<br>    <span class="hljs-built_in">print</span>(<br>        <span class="hljs-string">&quot;12306直达链接(复制到浏览器打开)：&quot;</span>,<br>        <span class="hljs-string">&quot;https://kyfw.12306.cn/otn/leftTicket/init?&quot;</span><br>        <span class="hljs-string">&quot;linktypeid=dc&amp;&quot;</span><br>        <span class="hljs-string">f&quot;fs=<span class="hljs-subst">&#123;begin&#125;</span>,<span class="hljs-subst">&#123;begin_id&#125;</span>&amp;&quot;</span><br>        <span class="hljs-string">f&quot;ts=<span class="hljs-subst">&#123;end&#125;</span>,<span class="hljs-subst">&#123;end_id&#125;</span>&amp;&quot;</span><br>        <span class="hljs-string">f&quot;date=<span class="hljs-subst">&#123;date&#125;</span>&amp;&quot;</span><br>        <span class="hljs-string">&quot;flag=N,N,Y&quot;</span><br>    )<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#coding=utf-8</span><br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> json<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_city_data</span>():<br>    url = <span class="hljs-string">&quot;https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9053&quot;</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;正在获取数据。&quot;</span>)<br>    <span class="hljs-comment"># 发送请求，获取返回的数据</span><br>    res = requests.get(url)<br>    data = <span class="hljs-built_in">str</span>(res.content, encoding=<span class="hljs-string">&quot;utf8&quot;</span>)<br>    <span class="hljs-comment"># 格式化返回的数据</span><br>    response_format(data)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">response_format</span>(<span class="hljs-params">data</span>):<br>    dict_data = <span class="hljs-built_in">dict</span>()<br>    <span class="hljs-comment"># 根据&#x27;|&#x27;分隔数据</span><br>    list_data = data.split(<span class="hljs-string">&#x27;|&#x27;</span>)<br>    <span class="hljs-comment"># 从下标&#x27;1&#x27;开始, 每间隔5个为字典key</span><br>    result_x = list_data[<span class="hljs-number">1</span>:<span class="hljs-built_in">len</span>(list_data):<span class="hljs-number">5</span>]<br>    <span class="hljs-comment"># 从下标&#x27;2&#x27;开始, 每间隔5个为字典value</span><br>    result_y = list_data[<span class="hljs-number">2</span>:<span class="hljs-built_in">len</span>(list_data):<span class="hljs-number">5</span>]<br>    <span class="hljs-comment"># 循环将数据写入字典</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(result_x)):<br>        dict_data[result_x[i].replace(<span class="hljs-string">&quot; &quot;</span>, <span class="hljs-string">&quot;&quot;</span>)] = result_y[i]<br>    <span class="hljs-comment"># 保存数据</span><br>    save_data(dict_data)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">save_data</span>(<span class="hljs-params">dict_data</span>):<br>    json_data = json.dumps(dict_data, indent=<span class="hljs-number">1</span>, ensure_ascii=<span class="hljs-literal">False</span>)<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;city_data.json&quot;</span>, <span class="hljs-string">&#x27;w&#x27;</span>) <span class="hljs-keyword">as</span> w:<br>        w.write(json_data)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;数据保存完成！&quot;</span>)<br><br><br>get_city_data()<br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/26/667bd4e58f5ac.png" srcset="/img/loading.gif" lazyload alt="1719391458122.png"></p>
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/26/667bd5570e0ca.png" srcset="/img/loading.gif" lazyload alt="1719391570913.png"></p>
+<h5 id="设计过程："><a href="#设计过程：" class="headerlink" title="设计过程："></a>设计过程：</h5><p>​	首先我们先写出一个关于登录注册的类，给出我们平常登录时所需要的注册登录过程，对于该类的每个方法需要加上@classmethod，否则两个不同的类之间调用的时候，会因为形参冲突出现报错。然后就考虑需要把数据进行存储，这里用的时json的数据格式，考虑到密码的保密性，对密码进行了一个简单的sha256加密。随后就在写一个类生成Tkinter的GUI界面，把其呈现出来。考虑到现实性，就是如果从未登录的话，要首先进行注册，然后在进行登录；在这期间，如果因为注册时登陆的密码或用户名与数据库中的不匹配，那么就会弹出一个登陆错误的窗口。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> messagebox<br><span class="hljs-keyword">from</span> cowpy <span class="hljs-keyword">import</span> cow<br><span class="hljs-keyword">from</span> pyecharts <span class="hljs-keyword">import</span> options <span class="hljs-keyword">as</span> opts<br><span class="hljs-keyword">from</span> pyecharts.charts <span class="hljs-keyword">import</span> Geo<br><span class="hljs-keyword">from</span> pyecharts.<span class="hljs-built_in">globals</span> <span class="hljs-keyword">import</span> ChartType<br><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">import</span> hashlib<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> os<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">login_signin</span>:<br><span class="hljs-meta">    @classmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">cls, username=<span class="hljs-string">&quot;&quot;</span>, password=<span class="hljs-string">&quot;&quot;</span></span>):<br>        cls.username = username<br>        cls.password = password<br>        cls.data_file = <span class="hljs-string">&quot;..\\模仿12306\\sign_in.txt&quot;</span><br><br><span class="hljs-meta">    @classmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">is_registered</span>(<span class="hljs-params">cls</span>):<br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(cls.data_file, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>            data = json.load(file)<br>            username = a<br>            <span class="hljs-keyword">if</span> data[<span class="hljs-string">&#x27;username&#x27;</span>] == username:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br><span class="hljs-meta">    @classmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sign</span>(<span class="hljs-params">cls</span>):<br>        cls.username=<span class="hljs-string">&quot;&quot;</span><br>        cls.password=<span class="hljs-string">&quot;&quot;</span><br>        login_data = &#123;<span class="hljs-string">&#x27;username&#x27;</span>: cls.username, <span class="hljs-string">&#x27;password&#x27;</span>: cls.password&#125;<br>        cls.username = a<br>        cls.password = b<br>        login_data.update(&#123;<span class="hljs-string">&#x27;username&#x27;</span>: cls.username, <span class="hljs-string">&#x27;password&#x27;</span>: hashlib.sha256(cls.password.encode()).hexdigest()&#125;)<br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;..\\模仿12306\\sign_in.txt&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>            json.dump(login_data, file, ensure_ascii=<span class="hljs-literal">False</span>)<br>        <span class="hljs-keyword">return</span> login_data<br><br><span class="hljs-meta">    @classmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">login</span>(<span class="hljs-params">cls</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Welcome to the login interface ^v^ &quot;</span>)<br>        file = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;..\\模仿12306\\sign_in.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>        login_data = json.load(file)<br>        cls.username = a<br>        cls.password = b<br>        <span class="hljs-keyword">if</span> login_data[<span class="hljs-string">&#x27;username&#x27;</span>] == cls.username <span class="hljs-keyword">and</span> login_data[<span class="hljs-string">&#x27;password&#x27;</span>] == hashlib.sha256(cls.password.encode()).hexdigest():<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span>(<span class="hljs-title class_ inherited__">Frame</span>):<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,master=NONE</span>):<br>        <span class="hljs-built_in">super</span>().__init__(master)<br>        self.master=master<br>        self.pack()<br>        self.creat()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">creat</span>(<span class="hljs-params">self</span>):<br>        self.v=StringVar()<br>        self.v.<span class="hljs-built_in">set</span>(<span class="hljs-number">1</span>)<br>        self.btn01=Radiobutton(self,text=<span class="hljs-string">&quot;注册&quot;</span>,value=<span class="hljs-number">1</span>,variable=self.v)<br>        self.btn01.pack()<br>        self.btn02=Radiobutton(self,text=<span class="hljs-string">&quot;登录&quot;</span>,value=<span class="hljs-number">0</span>,variable=self.v)<br>        self.btn02.pack()<br>        self.bt03=Button(self,text=<span class="hljs-string">&quot;确定&quot;</span>,command=self.confim)<br>        self.bt03.pack()<br>        self.bt04=Button(self,text=<span class="hljs-string">&quot;退出&quot;</span>,command=root.destroy)<br>        self.bt04.pack()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">confim</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">if</span> self.v.get()==<span class="hljs-string">&quot;1&quot;</span>:<br>            <span class="hljs-keyword">global</span> newtk<br>            newtk=Toplevel(root)<br>            newtk.v1=StringVar()<br>            newtk.v1.<span class="hljs-built_in">set</span>(<span class="hljs-string">&quot;&quot;</span>)<br>            newtk.lab1=Label(newtk,text=<span class="hljs-string">&quot;用户名&quot;</span>,width=<span class="hljs-number">6</span>,height=<span class="hljs-number">2</span>)<br>            newtk.lab1.pack()<br>            Entry(newtk,textvariable=newtk.v1).pack()<br>            newtk.lab2=Label(newtk,text=<span class="hljs-string">&quot;密码&quot;</span>,width=<span class="hljs-number">6</span>,height=<span class="hljs-number">2</span>)<br>            newtk.lab2.pack()<br>            newtk.v2=StringVar()<br>            newtk.v2.<span class="hljs-built_in">set</span>(<span class="hljs-string">&quot;&quot;</span>)<br>            newtk.en2=Entry(newtk,textvariable=newtk.v2,show=<span class="hljs-string">&quot;*&quot;</span>)<br>            newtk.en2.pack()<br>            Button(newtk,text=<span class="hljs-string">&quot;确定&quot;</span>,command=self.zhuce).pack()<br>            newtk.geometry(<span class="hljs-string">&quot;400x300+200+200&quot;</span>)<br>            newtk.mainloop()<br>        <span class="hljs-keyword">elif</span> self.v.get()==<span class="hljs-string">&quot;0&quot;</span>:<br>            root.destroy()<br>            self.newtk=Tk()<br>            self.newtk.v1=StringVar()<br>            self.newtk.v1.<span class="hljs-built_in">set</span>(<span class="hljs-string">&quot;&quot;</span>)<br>            self.newtk.lab1=Label(self.newtk,text=<span class="hljs-string">&quot;用户名&quot;</span>,width=<span class="hljs-number">6</span>,height=<span class="hljs-number">2</span>)<br>            self.newtk.lab1.pack()<br>            Entry(self.newtk,textvariable=self.newtk.v1).pack()<br>            self.newtk.lab2=Label(self.newtk,text=<span class="hljs-string">&quot;密码&quot;</span>,width=<span class="hljs-number">6</span>,height=<span class="hljs-number">2</span>)<br>            self.newtk.lab2.pack()<br>            self.newtk.v2=StringVar()<br>            self.newtk.v2.<span class="hljs-built_in">set</span>(<span class="hljs-string">&quot;&quot;</span>)<br>            self.newtk.en2=Entry(self.newtk,textvariable=self.newtk.v2,show=<span class="hljs-string">&quot;*&quot;</span>)<br>            self.newtk.en2.pack()<br>            Button(self.newtk,text=<span class="hljs-string">&quot;确定&quot;</span>,command=self.denglu).pack()<br>            self.newtk.geometry(<span class="hljs-string">&quot;400x300+200+200&quot;</span>)<br>            self.newtk.mainloop()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">zhuce</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">global</span> a<br>        <span class="hljs-keyword">global</span> b<br>        a=newtk.v1.get()<br>        b=newtk.v2.get()<br>        newtk.destroy()<br>        messagebox.showinfo(<span class="hljs-string">&quot;注册&quot;</span>,<span class="hljs-string">&quot;注册成功,请登录&quot;</span>)<br>        login_signin.sign()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">denglu</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">global</span> a<br>        <span class="hljs-keyword">global</span> b<br>        a=self.newtk.v1.get()<br>        b=self.newtk.v2.get()<br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span> (<span class="hljs-string">&quot;..\\模仿12306\\sign_in.txt&quot;</span>) <span class="hljs-keyword">as</span> fp:<br>            data = json.load(fp)<br>            <span class="hljs-keyword">if</span> a==data[<span class="hljs-string">&#x27;username&#x27;</span>]  <span class="hljs-keyword">and</span>   hashlib.sha256(b.encode()).hexdigest()== data[<span class="hljs-string">&#x27;password&#x27;</span>]:<br>                self.newtk.destroy()<br>                messagebox.showinfo(<span class="hljs-string">&quot;登录&quot;</span>,<span class="hljs-string">&quot;登录成功&quot;</span>)<br>                menu()<br>            <span class="hljs-keyword">elif</span> a!=data[<span class="hljs-string">&#x27;username&#x27;</span>]   <span class="hljs-keyword">or</span>  hashlib.sha256(b.encode()).hexdigest()!=data[<span class="hljs-string">&#x27;password&#x27;</span>]  :<br>                messagebox.showinfo(<span class="hljs-string">&quot;登录&quot;</span>,<span class="hljs-string">&quot;用户名或者密码错误,请重新登录&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>​	<img src="https://krseoul.imgtbl.com/i/2024/06/25/667ad6cf945d0.png" srcset="/img/loading.gif" lazyload alt="1719326408779.png"></p>
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/25/667ad70acc4da.png" srcset="/img/loading.gif" lazyload alt="1719326471221.png"></p>
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/25/667ad7613a410.png" srcset="/img/loading.gif" lazyload alt="1719326557711.png"></p>
+<p>登录错误;</p>
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/25/667ad78d8d0f5.png" srcset="/img/loading.gif" lazyload alt="1719326602651.png"></p>
+<p>第二，把登陆后的界面大致分为客运货运两类：客运和货运</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">menu</span>():<br>    <span class="hljs-keyword">global</span> mutk1<br>    mutk1=Tk()<br>    mutk1.geometry(<span class="hljs-string">&quot;400x300+200+200&quot;</span>)<br>    mutk1.bt1=Button(text=<span class="hljs-string">&quot;客运火车&quot;</span>,command=keyun).pack()<br>    mutk1.bt2=Button(text=<span class="hljs-string">&quot;货运火车&quot;</span>,command=huoyun).pack()<br>    mutk1.bt3=Button(text=<span class="hljs-string">&quot;退出&quot;</span>,command=chuzu).pack()<br>    mutk1.mainloop()<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">keyun</span>():<br>    mutk1.destroy()<br>    choice_train()<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">huoyun</span>():<br>    mutk1.destroy()<br>    choice_truck()<br><br><br></code></pre></td></tr></table></figure>
+
+<p><em>客运</em>：我们分为5个主要功能分别是通过车次类型筛查，乘车时间点筛查，始发地筛查(始发地筛查中有按价格排序，按时间排序。)其中输入按时间排查过后会同时显示出对应的气温最低最高的柱状图。下面附上相应功能的代码和效果图：我们先要读取列车时刻表的数据库中的内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">read_data</span>():<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;..\\模仿12306\\train_schedule.txt&quot;</span>, <span class="hljs-string">&#x27;r&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> fp:<br>        lines = fp.readlines()<br>        result = []<br>        <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:<br>            line = line.replace(<span class="hljs-string">&#x27;\n&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>)<br>            result.append(line)<br>    <span class="hljs-keyword">return</span> result<br><br></code></pre></td></tr></table></figure>
+
+<p>①：车次类型筛查：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">choice_1</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;请输入车次类型(G:高铁，D:动车，Z：直达，K:普快,T:特快，C:城际铁路)：&quot;</span>)<br>    turn = <span class="hljs-built_in">input</span>()<br>    watchable = read_data()<br>    <span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> watchable:<br>        <span class="hljs-keyword">if</span> turn <span class="hljs-keyword">in</span> var:<br>            <span class="hljs-built_in">print</span>(var)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/25/667ad9c4a7584.png" srcset="/img/loading.gif" lazyload alt="1719327168648.png"></p>
+<p>② 乘车时间的筛查：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">what_is_the_temperature</span>(<span class="hljs-params">date</span>):<br>    low_temperature_sprinter = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-number">10</span>)]<br>    high_temperature_sprinter = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">11</span>,<span class="hljs-number">18</span>)]<br>    low_temperature_summer = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> low_temperature_sprinter]<br>    high_temperature_summer = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> high_temperature_sprinter]<br>    low_temperature_autumn = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">15</span>,<span class="hljs-number">20</span>)]<br>    high_temperature_autumn = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">23</span>,<span class="hljs-number">34</span>)]<br>    high_temperature_winter = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">8</span>,<span class="hljs-number">15</span>)]<br>    low_temperature_winter = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(-<span class="hljs-number">2</span>,<span class="hljs-number">5</span>)]<br>    cities = [<span class="hljs-string">&quot;北京&quot;</span>, <span class="hljs-string">&quot;上海&quot;</span>, <span class="hljs-string">&quot;广州&quot;</span>, <span class="hljs-string">&quot;深圳&quot;</span>, <span class="hljs-string">&quot;成都&quot;</span>, <span class="hljs-string">&quot;武汉&quot;</span>, <span class="hljs-string">&quot;西安&quot;</span>, <span class="hljs-string">&quot;郑州&quot;</span>, <span class="hljs-string">&quot;厦门&quot;</span>, <span class="hljs-string">&quot;南京&quot;</span>, <span class="hljs-string">&quot;济南&quot;</span>]<br>    temperatures = &#123;<br>        <span class="hljs-string">&quot;spring&quot;</span>: &#123;city: &#123;<span class="hljs-string">&quot;max&quot;</span>: random.choice(high_temperature_sprinter), <span class="hljs-string">&quot;min&quot;</span>: random.choice(low_temperature_sprinter)&#125; <span class="hljs-keyword">for</span> city <span class="hljs-keyword">in</span> cities&#125;,<br>        <span class="hljs-string">&quot;summer&quot;</span>: &#123;city: &#123;<span class="hljs-string">&quot;max&quot;</span>: random.choice(high_temperature_summer), <span class="hljs-string">&quot;min&quot;</span>: random.choice(low_temperature_summer)&#125;<span class="hljs-keyword">for</span> city <span class="hljs-keyword">in</span> cities&#125;,<br>        <span class="hljs-string">&quot;autumn&quot;</span>: &#123;city: &#123;<span class="hljs-string">&quot;max&quot;</span>: random.choice(high_temperature_autumn), <span class="hljs-string">&quot;min&quot;</span>: random.choice(low_temperature_autumn)&#125; <span class="hljs-keyword">for</span> city <span class="hljs-keyword">in</span> cities&#125;,<br>        <span class="hljs-string">&quot;winter&quot;</span>: &#123;city: &#123;<span class="hljs-string">&quot;max&quot;</span>:random.choice(high_temperature_winter), <span class="hljs-string">&quot;min&quot;</span>:random.choice(low_temperature_winter)&#125; <span class="hljs-keyword">for</span> city <span class="hljs-keyword">in</span> cities&#125;<br>    &#125;<br>    plt.rc(<span class="hljs-string">&quot;font&quot;</span>, family=<span class="hljs-string">&#x27;Microsoft YaHei&#x27;</span>)  <span class="hljs-comment"># 这里的用途确保中文能够输出 ！！！</span><br>    plt.figure(figsize=(<span class="hljs-number">12</span>, <span class="hljs-number">6</span>))<br>    x_values = np.arange(<span class="hljs-built_in">len</span>(cities))  <span class="hljs-comment"># 城市的索引位置</span><br>    bar_width = <span class="hljs-number">0.35</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">int</span>(date[<span class="hljs-number">6</span>]) &gt;=<span class="hljs-number">3</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">int</span>(date[<span class="hljs-number">6</span>]) &lt;= <span class="hljs-number">5</span>:<br>        max_temperature = [temperatures[<span class="hljs-string">&quot;spring&quot;</span>][i][<span class="hljs-string">&quot;max&quot;</span>] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> cities]<br>        min_temperature = [temperatures[<span class="hljs-string">&quot;spring&quot;</span>][j][<span class="hljs-string">&quot;min&quot;</span>] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> cities]<br>        plt.bar(x_values, max_temperature,bar_width, align=<span class="hljs-string">&#x27;center&#x27;</span>,label = <span class="hljs-string">&#x27;Temperature&#x27;</span>, color=<span class="hljs-string">&#x27;blue&#x27;</span>)<br>        plt.bar(x_values+bar_width, min_temperature,bar_width,align=<span class="hljs-string">&#x27;center&#x27;</span>,label = <span class="hljs-string">&#x27;Temperature&#x27;</span>, color=<span class="hljs-string">&#x27;yellow&#x27;</span>)<br>        plt.xlabel(<span class="hljs-string">&quot;Cities&quot;</span>)<br>        plt.ylabel(<span class="hljs-string">&quot;Temperature&quot;</span>)<br>        plt.title(<span class="hljs-string">&quot;Temperature of cities&quot;</span>)<br>        plt.xticks(x_values + bar_width / <span class="hljs-number">2</span>, cities, rotation=<span class="hljs-number">45</span>)<br>        plt.legend()<br>        plt.show()<br>    <span class="hljs-keyword">elif</span> <span class="hljs-built_in">int</span>(date[<span class="hljs-number">6</span>]) &gt;=<span class="hljs-number">6</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">int</span>(date[<span class="hljs-number">6</span>]) &lt;=<span class="hljs-number">8</span>:<br>        max_temperature = [temperatures[<span class="hljs-string">&quot;summer&quot;</span>][i][<span class="hljs-string">&quot;max&quot;</span>] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> cities]<br>        min_temperature = [temperatures[<span class="hljs-string">&quot;summer&quot;</span>][j][<span class="hljs-string">&quot;min&quot;</span>] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> cities]<br>        plt.bar(x_values, max_temperature,bar_width, align=<span class="hljs-string">&#x27;center&#x27;</span>,label = <span class="hljs-string">&#x27;Temperature&#x27;</span>, color=<span class="hljs-string">&#x27;blue&#x27;</span>)<br>        plt.bar(x_values+bar_width, min_temperature,bar_width,align=<span class="hljs-string">&#x27;center&#x27;</span>,label = <span class="hljs-string">&#x27;Temperature&#x27;</span>, color=<span class="hljs-string">&#x27;yellow&#x27;</span>)<br>        plt.xlabel(<span class="hljs-string">&quot;Cities&quot;</span>)<br>        plt.ylabel(<span class="hljs-string">&quot;Temperature&quot;</span>)<br>        plt.title(<span class="hljs-string">&quot;Temperature of cities&quot;</span>)<br>        plt.xticks(x_values + bar_width / <span class="hljs-number">2</span>, cities, rotation=<span class="hljs-number">45</span>)<br>        plt.legend()<br>        plt.show()<br>    <span class="hljs-keyword">elif</span> <span class="hljs-built_in">int</span>(date[<span class="hljs-number">6</span>]) &gt;=<span class="hljs-number">9</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">int</span>(date[<span class="hljs-number">6</span>]) &lt;= <span class="hljs-number">11</span>:<br>        max_temperature = [temperatures[<span class="hljs-string">&quot;autumn&quot;</span>][i][<span class="hljs-string">&quot;max&quot;</span>] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> cities]<br>        min_temperature = [temperatures[<span class="hljs-string">&quot;autumn&quot;</span>][j][<span class="hljs-string">&quot;min&quot;</span>] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> cities]<br>        plt.bar(x_values, max_temperature,bar_width, align=<span class="hljs-string">&#x27;center&#x27;</span>,label = <span class="hljs-string">&#x27;Temperature&#x27;</span>, color=<span class="hljs-string">&#x27;blue&#x27;</span>)<br>        plt.bar(x_values+bar_width, min_temperature,bar_width,align=<span class="hljs-string">&#x27;center&#x27;</span>,label = <span class="hljs-string">&#x27;Temperature&#x27;</span>, color=<span class="hljs-string">&#x27;yellow&#x27;</span>)<br>        plt.xlabel(<span class="hljs-string">&quot;Cities&quot;</span>)<br>        plt.ylabel(<span class="hljs-string">&quot;Temperature&quot;</span>)<br>        plt.title(<span class="hljs-string">&quot;Temperature of cities&quot;</span>)<br>        plt.xticks(x_values + bar_width / <span class="hljs-number">2</span>, cities, rotation=<span class="hljs-number">45</span>)<br>        plt.legend()<br>        plt.show()<br>    <span class="hljs-keyword">else</span>:<br>        max_temperature = [temperatures[<span class="hljs-string">&quot;winter&quot;</span>][i][<span class="hljs-string">&quot;max&quot;</span>] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> cities]<br>        min_temperature = [temperatures[<span class="hljs-string">&quot;winter&quot;</span>][j][<span class="hljs-string">&quot;min&quot;</span>] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> cities]<br>        plt.bar(x_values, max_temperature,bar_width, align=<span class="hljs-string">&#x27;center&#x27;</span>,label = <span class="hljs-string">&#x27;Temperature&#x27;</span>, color=<span class="hljs-string">&#x27;blue&#x27;</span>)<br>        plt.bar(x_values+bar_width, min_temperature,bar_width,align=<span class="hljs-string">&#x27;center&#x27;</span>,label = <span class="hljs-string">&#x27;Temperature&#x27;</span>, color=<span class="hljs-string">&#x27;yellow&#x27;</span>)<br>        plt.xlabel(<span class="hljs-string">&quot;Cities&quot;</span>)<br>        plt.ylabel(<span class="hljs-string">&quot;Temperature&quot;</span>)<br>        plt.title(<span class="hljs-string">&quot;Temperature of cities&quot;</span>)<br>        plt.xticks(x_values + bar_width / <span class="hljs-number">2</span>, cities, rotation=<span class="hljs-number">45</span>)<br>        plt.legend()<br>        plt.show()<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">choice_2</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;请输入所需时间点：&quot;</span>)<br>    time_start = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;样例：2024-11-20 08:32:00&quot;</span>)<br>    time_see = read_data()<br>    <span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> time_see:<br>        <span class="hljs-keyword">if</span> time_start <span class="hljs-keyword">in</span> var:<br>            <span class="hljs-built_in">print</span>(var)<br>            what_is_the_temperature(time_start.split()[<span class="hljs-number">0</span>])<br></code></pre></td></tr></table></figure>
+
+<p>运行结果如下图：</p>
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/26/667c0cf62997a.png" srcset="/img/loading.gif" lazyload alt="1719405811607.png"></p>
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/25/667adb684508a.png" srcset="/img/loading.gif" lazyload alt="1719327588746.png"></p>
+<p>③ 始发地：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">choice_3</span>():<br>    start = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;出发地：&quot;</span>)<br>    destination = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;目的地：&quot;</span>)<br>    place = read_data()<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;..\\模仿12306\\specific_city.txt&quot;</span>, <span class="hljs-string">&#x27;w&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> file_:<br>        <span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> place:<br>            <span class="hljs-keyword">if</span> <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;start&#125;</span>--&gt;<span class="hljs-subst">&#123;destination&#125;</span>&quot;</span> <span class="hljs-keyword">in</span> var.split()[<span class="hljs-number">2</span>]:<br>                file_.write(var + <span class="hljs-string">&#x27;\n&#x27;</span>)<br>                <span class="hljs-built_in">print</span>(var)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">choice_3_1</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1.按价格排序&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2.按时间排序&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;3.退出&quot;</span>)<br>    choice = <span class="hljs-built_in">input</span>()<br>    <span class="hljs-keyword">if</span> choice == <span class="hljs-string">&quot;1&quot;</span>:<br>        price_sort()<br>        <span class="hljs-keyword">return</span> choice_3_1()<br>    <span class="hljs-keyword">elif</span> choice == <span class="hljs-string">&quot;2&quot;</span>:<br>        time_sort()<br>        <span class="hljs-keyword">return</span> choice_3_1()<br>    <span class="hljs-keyword">elif</span> choice == <span class="hljs-string">&quot;3&quot;</span>:<br>        <span class="hljs-keyword">return</span> choice_train()<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Invalid&quot;</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">mix_choice_3</span>():<br>    choice_3()<br>    choice_3_1()<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/26/667c0d974e4a8.png" srcset="/img/loading.gif" lazyload alt="1719405973127.png"></p>
+<p>④：按价格排序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">price_sort</span>():<br>    d=<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;..\\模仿12306\\train_schedule.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>,encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>    c=[<span class="hljs-string">&quot;&quot;</span>]<br>    b=<span class="hljs-string">&quot;&quot;</span><br>    e=[]<br>    f=[]<br>    p=<span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-keyword">while</span> c!=[]:<br>        c=d.readline().split()<br>        <span class="hljs-keyword">if</span> c!=[]:<br>            f+=[c]<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(f)):<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(f[j][<span class="hljs-number">1</span>])):<br>            <span class="hljs-keyword">if</span> f[j][<span class="hljs-number">1</span>][i]==<span class="hljs-string">&quot;y&quot;</span>:<br>                <span class="hljs-keyword">break</span><br>            <span class="hljs-keyword">else</span>:<br>                b+=f[j][<span class="hljs-number">1</span>][i]<br>        e+=[<span class="hljs-built_in">eval</span>(b)]<br>        b=<span class="hljs-string">&quot;&quot;</span><br>    pai=&#123;&#125;<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(e)):<br>        pai[e[i]]=i<br>    e.sort()<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(e)):<br>        d=<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;..\\模仿12306\\train_schedule.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>,encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(e)):<br>            <span class="hljs-keyword">if</span> j !=pai[e[i]]:<br>                p=d.readline()<br>            <span class="hljs-keyword">elif</span> j==pai[e[i]]:<br>                p=d.readline()<br>                <span class="hljs-built_in">print</span>(p)<br>    d.close()<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/26/667c0ddd349a3.png" srcset="/img/loading.gif" lazyload alt="1719406038752.png"></p>
+<p>⑤ 按时间差大小排序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">time_sum</span>(<span class="hljs-params">x</span>):<br>    a=x[<span class="hljs-number">1</span>]*<span class="hljs-number">30</span>*<span class="hljs-number">24</span>*<span class="hljs-number">60</span>+x[<span class="hljs-number">2</span>]*<span class="hljs-number">24</span>*<span class="hljs-number">60</span>+x[<span class="hljs-number">3</span>]*<span class="hljs-number">60</span>+x[<span class="hljs-number">4</span>]<br>    <span class="hljs-keyword">return</span> a<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">time_sort</span>():<br>    a=[]<br>    d=<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;..\\模仿12306\\train_schedule.txt&quot;</span>, <span class="hljs-string">&#x27;r&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>    c=[<span class="hljs-string">&quot;&quot;</span>]<br>    b=<span class="hljs-number">0</span><br>    e=[]<br>    f=[]<br>    p=<span class="hljs-string">&quot;&quot;</span><br>    o=[]<br>    shijian=[]<br>    <span class="hljs-keyword">while</span> c!=[]:<br>        c=d.readline().split()<br>        <span class="hljs-keyword">if</span> c!=[]:<br>            f+=[c]<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(f)):<br>        a=f[i][<span class="hljs-number">3</span>].split(<span class="hljs-string">&quot;-&quot;</span>)+f[i][<span class="hljs-number">4</span>].split(<span class="hljs-string">&quot;:&quot;</span>)<br>        <span class="hljs-keyword">for</span> g <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(a)):<br>            a[g]=<span class="hljs-built_in">int</span>(a[g])<br>        e+=[a]<br>        a=[]<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(f)):<br>        a=f[i][<span class="hljs-number">5</span>].split(<span class="hljs-string">&quot;-&quot;</span>)+f[i][<span class="hljs-number">6</span>].split(<span class="hljs-string">&quot;:&quot;</span>)<br>        <span class="hljs-keyword">for</span> g <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(a)):<br>            a[g]=<span class="hljs-built_in">int</span>(a[g])<br>        o+=[a]<br>        a=[]<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(e)):<br>        b+=time_sum(o[i])-time_sum(e[i])<br>        shijian+=[b]<br>        b=<span class="hljs-number">0</span><br>    suoyin=&#123;&#125;<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(shijian)):<br>        suoyin[shijian[i]]=i<br>    shijian.sort()<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(shijian)):<br>        d=<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;..\\模仿12306\\train_schedule.txt&quot;</span>, <span class="hljs-string">&#x27;r&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(shijian)):<br>            <span class="hljs-keyword">if</span> j !=suoyin[shijian[i]]:<br>                p=d.readline()<br>            <span class="hljs-keyword">elif</span> j==suoyin[shijian[i]]:<br>                p=d.readline()<br>                <span class="hljs-built_in">print</span>(p)<br>    d.close()<br></code></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\platycodon\AppData\Roaming\Typora\typora-user-images\image-20240626204844488.png" srcset="/img/loading.gif" lazyload alt="image-20240626204844488"></p>
+<p>⑥ 查看全国城市AQI指数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">air_AQI</span>():<br>    keys = [<span class="hljs-string">&quot;北京&quot;</span>, <span class="hljs-string">&quot;上海&quot;</span>, <span class="hljs-string">&quot;广州&quot;</span>, <span class="hljs-string">&quot;深圳&quot;</span>, <span class="hljs-string">&quot;成都&quot;</span>, <span class="hljs-string">&quot;武汉&quot;</span>, <span class="hljs-string">&quot;西安&quot;</span>, <span class="hljs-string">&quot;郑州&quot;</span>, <span class="hljs-string">&quot;厦门&quot;</span>, <span class="hljs-string">&quot;南京&quot;</span>, <span class="hljs-string">&quot;济南&quot;</span>]<br>    values = [<span class="hljs-number">204.0</span>, <span class="hljs-number">59.0</span>, <span class="hljs-number">71.0</span>, <span class="hljs-number">38.0</span>, <span class="hljs-number">53.0</span>, <span class="hljs-number">89.0</span>, <span class="hljs-number">99.0</span>, <span class="hljs-number">95.0</span>, <span class="hljs-number">62.0</span>, <span class="hljs-number">56.0</span>, <span class="hljs-number">161.0</span>]<br><br>    c = (<br>        Geo()<br>        .add_schema(maptype=<span class="hljs-string">&quot;china&quot;</span>)<br>        .add(<br>            <span class="hljs-string">&quot;空气质量AOI指数图&quot;</span>,<br>            [<span class="hljs-built_in">list</span>(z) <span class="hljs-keyword">for</span> z <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(keys, values)],<br>            type_=ChartType.EFFECT_SCATTER,<br>        )<br>        .set_series_opts(label_opts=opts.LabelOpts(is_show=<span class="hljs-literal">False</span>))<br>        .set_global_opts(title_opts=opts.TitleOpts(title=<span class="hljs-string">&quot;全国主要城市空气质量AQI图&quot;</span>))<br>        .render()<br>    )<br>    <span class="hljs-comment"># 打开html</span><br>    os.system(<span class="hljs-string">&quot;render.html&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/25/667adf4b619c6.png" srcset="/img/loading.gif" lazyload alt="1719328583423.png"></p>
+<p>其中蓝点能够显示AQI指数：</p>
+<p><img src="C:\Users\platycodon\AppData\Roaming\Typora\typora-user-images\image-20240625233623070.png" srcset="/img/loading.gif" lazyload alt="image-20240625233623070"></p>
+<p>⑦退出：</p>
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/26/667c0f10d67b7.png" srcset="/img/loading.gif" lazyload alt="1719406349144.png"></p>
+<p>整个过程都整合到下面的函数代码中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">choice_train</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;=== 车票查询 ===&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1.车次类型：&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2.乘车时间点：&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;3.始发地：&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;4.查看全国城市AQI指数&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;5.退出&quot;</span>)<br>    n = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入数字：&quot;</span>)<br>    <span class="hljs-keyword">if</span> n == <span class="hljs-string">&#x27;1&#x27;</span>:<br>        choice_1()<br>    <span class="hljs-keyword">elif</span> n == <span class="hljs-string">&#x27;2&#x27;</span>:<br>        choice_2()<br>    <span class="hljs-keyword">elif</span> n == <span class="hljs-string">&#x27;3&#x27;</span>:<br>        mix_choice_3()<br>    <span class="hljs-keyword">elif</span> n == <span class="hljs-string">&#x27;4&#x27;</span>:<br>        air_AQI()  <span class="hljs-comment">#这里返回的是html界面</span><br>        <span class="hljs-keyword">return</span> choice_train()<br>    <span class="hljs-keyword">elif</span> n == <span class="hljs-string">&#x27;5&#x27;</span>:<br>        <span class="hljs-keyword">return</span> menu()<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;invalid,rewrite!!!&quot;</span>)<br>        <span class="hljs-keyword">return</span> choice_train()<br></code></pre></td></tr></table></figure>
+
+<p><em>货运</em>：</p>
+<p>这里的货运实现的是寄货运货的功能，里面涉及到的距离是通过运用haversine公式，通过两地的经纬度计算出两地的距离。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">haversine</span>(<span class="hljs-params">lat1, lon1, lat2, lon2</span>):<br>    <span class="hljs-keyword">import</span> math<br>    <span class="hljs-keyword">if</span> lat1 &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> lat1 &gt; <span class="hljs-number">90</span> <span class="hljs-keyword">or</span> lat2 &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> lat2 &gt; <span class="hljs-number">90</span> <span class="hljs-keyword">or</span> lon1 &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> lon1 &gt; <span class="hljs-number">180</span> <span class="hljs-keyword">or</span> lon2 &gt; <span class="hljs-number">180</span> <span class="hljs-keyword">or</span> lon2 &lt; <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Sorry, I don&#x27;t understand&quot;</span><br>    <span class="hljs-keyword">else</span>:<br>        r = <span class="hljs-number">6371</span><br>        lat1_radians = (lat1/<span class="hljs-number">180</span>)*math.pi<br>        lat2_radians = (lat2/<span class="hljs-number">180</span>)*math.pi<br>        lon1_radians = (lon1/<span class="hljs-number">180</span>)*math.pi<br>        lon2_radians = (lon2/<span class="hljs-number">180</span>)*math.pi<br>        d = <span class="hljs-number">2</span> * r * math.asin(math.sqrt((math.sin((lat2_radians-lat1_radians) / <span class="hljs-number">2</span>)) ** <span class="hljs-number">2</span> + math.cos(lat1_radians) * math.cos(lat2_radians) * (math.sin((lon2_radians-lon1_radians) / <span class="hljs-number">2</span>)) ** <span class="hljs-number">2</span>))<br>    <span class="hljs-keyword">return</span> d<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">place_station</span>():<br>    l =[]<br>    station = [<span class="hljs-string">&quot;北京&quot;</span>, <span class="hljs-string">&quot;上海&quot;</span>, <span class="hljs-string">&quot;广州&quot;</span>, <span class="hljs-string">&quot;深圳&quot;</span>, <span class="hljs-string">&quot;成都&quot;</span>, <span class="hljs-string">&quot;武汉&quot;</span>, <span class="hljs-string">&quot;西安&quot;</span>, <span class="hljs-string">&quot;郑州&quot;</span>, <span class="hljs-string">&quot;厦门&quot;</span>, <span class="hljs-string">&quot;南京&quot;</span>, <span class="hljs-string">&quot;济南&quot;</span>]<br>    <span class="hljs-keyword">for</span> element <span class="hljs-keyword">in</span> station:<br>        <span class="hljs-keyword">for</span> element1 <span class="hljs-keyword">in</span> station:<br>            ans = <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;element&#125;</span>--&gt;<span class="hljs-subst">&#123;element1&#125;</span>&quot;</span><br>            <span class="hljs-keyword">if</span> element == element1:<br>                <span class="hljs-keyword">pass</span><br>            <span class="hljs-keyword">else</span>:<br>                l.append(ans)<br>    <span class="hljs-keyword">return</span> l<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">distance</span>():<br>    l = []<br>    place_ = &#123;<span class="hljs-string">&quot;北京&quot;</span>:(<span class="hljs-number">116.328175</span>,<span class="hljs-number">39.900772</span>), <span class="hljs-string">&quot;上海&quot;</span>:(<span class="hljs-number">121.326533</span>,<span class="hljs-number">31.200282</span>), <span class="hljs-string">&quot;广州&quot;</span>:(<span class="hljs-number">113.264499</span>,<span class="hljs-number">23.130061</span>), <span class="hljs-string">&quot;深圳&quot;</span>:(<span class="hljs-number">114.057939</span>,<span class="hljs-number">22.543527</span>), <span class="hljs-string">&quot;成都&quot;</span>:(<span class="hljs-number">104.066301</span>,<span class="hljs-number">30.572961</span>), <span class="hljs-string">&quot;武汉&quot;</span>:(<span class="hljs-number">114.304569</span>,<span class="hljs-number">30.593354</span>), <span class="hljs-string">&quot;西安&quot;</span>:(<span class="hljs-number">108.939645</span>,<span class="hljs-number">34.343207</span>), <span class="hljs-string">&quot;郑州&quot;</span>:(<span class="hljs-number">113.625351</span>,<span class="hljs-number">34.746303</span>), <span class="hljs-string">&quot;厦门&quot;</span>:(<span class="hljs-number">113.625351</span>,<span class="hljs-number">34.746303</span>), <span class="hljs-string">&quot;南京&quot;</span>:(<span class="hljs-number">118.796624</span>,<span class="hljs-number">32.059344</span>), <span class="hljs-string">&quot;济南&quot;</span>:(<span class="hljs-number">117.120128</span>,<span class="hljs-number">36.652069</span>)&#125;<br>    <span class="hljs-keyword">for</span> place <span class="hljs-keyword">in</span> place_:<br>        <span class="hljs-keyword">for</span> place1 <span class="hljs-keyword">in</span> place_:<br>            lat1,lon1 = place_[place][<span class="hljs-number">1</span>],place_[place][<span class="hljs-number">0</span>]<br>            lat2,lon2 = place_[place1][<span class="hljs-number">1</span>],place_[place1][<span class="hljs-number">0</span>]<br>            res = haversine(lat1,lon1,lat2,lon2)<br>            <span class="hljs-keyword">if</span> res == <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">pass</span><br>            <span class="hljs-keyword">else</span>:<br>                l.append(<span class="hljs-built_in">round</span>(res,<span class="hljs-number">1</span>))<br>    place_name = place_station()<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>(place_name,l))<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">weigh</span>(<span class="hljs-params">mass</span>):<br>    <span class="hljs-keyword">if</span> mass &lt;= <span class="hljs-number">2.5</span>*<span class="hljs-number">10</span>**<span class="hljs-number">3</span>:<br>        res = mass*<span class="hljs-number">0.5</span><br>        <span class="hljs-keyword">return</span> res<br>    <span class="hljs-keyword">elif</span> mass &gt; <span class="hljs-number">2.5</span>*<span class="hljs-number">10</span>**<span class="hljs-number">3</span> <span class="hljs-keyword">and</span> mass &lt;= <span class="hljs-number">5</span>*<span class="hljs-number">10</span>**<span class="hljs-number">3</span>:<br>        res = mass*<span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> res<br>    <span class="hljs-keyword">else</span>:<br>        res = mass*<span class="hljs-number">2</span><br>        <span class="hljs-keyword">return</span> res<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">price</span>():<br>    mass = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入你的货物质量(1.0)&quot;</span>))<br>    price_station = distance()<br>    l = []<br>    <span class="hljs-keyword">for</span> dis <span class="hljs-keyword">in</span> price_station:<br>        temp = price_station[dis]<br>        price = temp*weigh(mass)<br>        l.append(price)<br>    place_name = place_station()<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>(place_name,l))<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">choice_truck</span>():<br>    start_place = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入你的出发地：&quot;</span>)<br>    final_place = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入你的寄件地：&quot;</span>)<br>    place = <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;start_place&#125;</span>--&gt;<span class="hljs-subst">&#123;final_place&#125;</span>&quot;</span><br>    dictionary = price()<br>    <span class="hljs-keyword">for</span> vara <span class="hljs-keyword">in</span> dictionary.keys():<br>        <span class="hljs-keyword">if</span> place == vara:<br>            <span class="hljs-built_in">print</span>(dictionary[vara])<br>    <span class="hljs-keyword">return</span> menu()<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/26/667b974d738f2.png" srcset="/img/loading.gif" lazyload alt="1719375689507.png"></p>
+<p>最后就是退出功能了，这里在退出时设计了一个小弹窗，通过cowsay板块稍加渲染，展示出一幅活泼的画面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">chuzu</span>():<br>    mutk1.destroy()<br>    messagebox.showinfo(<span class="hljs-string">&quot;感谢使用&quot;</span>,cow_say())<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">cow_say</span>():<br>    msg = cow.milk_random_cow(<span class="hljs-string">&quot;Zaku,Zaku,Zaku,Zaku&quot;</span>)<br>    <span class="hljs-keyword">return</span> msg<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://krseoul.imgtbl.com/i/2024/06/26/667b983878760.png" srcset="/img/loading.gif" lazyload alt="1719375925780.png"></p>
+<p>总结：</p>
+<p>​	经过这次项目的设计，使全组成员对python有了一个更深层次的理解。而且还同时锻炼了编程思维，在一定程度上还锻炼出一种创造力。不仅如此，还形成了攻坚克难，积极学习，团结一致的良好的团队精神。在debug环节中感受到了修改代码的苦与修改成功的乐，还顺带对相应知识的深刻理解与感悟。</p>
+<p>​	正是因为这样敢于试错，不怕困难的精神，才能够使该项目呈现出来。以后的学习中，我们还需不断磨练自己，是自己最后能够真正的成为一个能人巧匠。</p>
+<p>未来程序改进：</p>
+<p>首先针对整个程序的GUI和一些可视化界面在做不断的完善，实现全部的可视化；其次因为我们的数据库是通过随机生成的伪数据，不够精准，需要把所有数据替换成爬虫得到的数据，然后就是对于两点间的铁路距离问题，可以创建一个机器学习的大模型进行不断的训练，然后得到全国范围内的两地之间的火车站的距离。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>模拟火车客运货运系统</div>
+      <div>http://example.com/2024/06/27/模拟火车客运货运系统/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年6月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/12/python-practice2/" title="python_practice2">
+                        <span class="hidden-mobile">python_practice2</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"dSBDwVALa3ATTUaTPVZCUmxn-gzGzoHsz","appKey":"bgxcaFzMdkCiBvBtTaigCPoi","path":"window.location.pathname","placeholder":"爽言畅谈","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         次
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
