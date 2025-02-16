@@ -8,6 +8,134 @@ HTMLElement.prototype.wrap = function(wrapper) {
 
 Fluid.events = {
 
+  registerScrollTopArrowEvent: function () {
+    var topArrow = jQuery('#scroll-top-button');
+    if (topArrow.length === 0) {
+      return;
+    }
+    var board = jQuery('#board');
+    if (board.length === 0) {
+      return;
+    }
+    var posDisplay = false;
+    var scrollDisplay = false;
+    // Position
+    var setTopArrowPos = function () {
+      var boardRight = board[0].getClientRects()[0].right;
+      var bodyWidth = document.body.offsetWidth;
+      var right = bodyWidth - boardRight;
+      posDisplay = right >= 50;
+      topArrow.css({
+        'bottom': posDisplay && scrollDisplay ? '20px' : '-60px',
+        'right': right - 64 + 'px'
+      });
+    };
+    setTopArrowPos();
+    jQuery(window).resize(setTopArrowPos);
+    // Display
+    var headerHeight = board.offset().top;
+    Fluid.utils.listenScroll(function () {
+      var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
+      scrollDisplay = scrollHeight >= headerHeight;
+      topArrow.css({
+        'bottom': posDisplay && scrollDisplay ? '20px' : '-60px'
+      });
+    });
+    // Click
+    topArrow.on('click', function () {
+      jQuery('body,html').animate({
+        scrollTop: 0,
+        easing: 'swing'
+      });
+    });
+  },
+
+  // 文章页面跳转评论区按钮
+  registerScrollToCommentsEvent: function () {
+    // 判断是否为文章页面
+    if (window.location.href.indexOf("posts") === -1) {
+      return;
+    }
+    var offsetToComments = 70; // 评论区顶部到距离页面顶部高度
+    var bottomComment = jQuery('#scroll-comment-button');
+    if (bottomComment.length === 0) {
+      return;
+    }
+    var board = jQuery('#board');
+    if (board.length === 0) {
+      return;
+    }
+    var posDisplay = false;
+    var scrollDisplay = false;
+    // Position
+    var setCommentButtonPos = function () {
+      var boardRight = board[0].getClientRects()[0].right;
+      var bodyWidth = document.body.offsetWidth;
+      var right = bodyWidth - boardRight;
+      posDisplay = right >= 50;
+      bottomComment.css({
+        'bottom': posDisplay && scrollDisplay ? '80px' : '-60px',
+        'right': right - 64 + 'px'
+      });
+    };
+    setCommentButtonPos();
+    jQuery(window).resize(setCommentButtonPos);
+    // Display
+    var headerHeight = board.offset().top;
+    Fluid.utils.listenScroll(function () {
+      var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
+      scrollDisplay = scrollHeight >= headerHeight;
+      bottomComment.css({
+        'bottom': posDisplay && scrollDisplay ? '80px' : '-60px'
+      });
+    });
+    var setCommentButtonPos = function () {
+      var boardRight = board[0].getClientRects()[0].right;
+      var bodyWidth = document.body.offsetWidth;
+      var right = bodyWidth - boardRight;
+      posDisplay = right >= 50;
+      bottomComment.css({
+        'bottom': posDisplay && scrollDisplay ? '20px' : '-60px',
+        'right': right - 64 + 'px'
+      });
+    };
+    // Click
+    bottomComment.on('click', function () {
+      var commentsSection = jQuery('#comments');
+      if (commentsSection.length > 0) {
+        var scrollTo = commentsSection.offset().top - offsetToComments;
+        jQuery('body,html').animate({
+          scrollTop: scrollTo,
+          easing: 'swing'
+        });
+      }
+    });
+    // Button Aimation
+    let commentsSection = document.querySelector("#comments"); // 获取评论区的div元素
+    let scrollButton = document.querySelector("#scroll-comment-button"); // 获取跳转按钮元素
+    // 添加页面滚动事件监听
+    document.addEventListener("scroll", handleScroll);
+    // 页面滚动事件处理函数
+    function handleScroll() {
+      // 获取评论区相对于页面的位置
+      const sectionRect = commentsSection.getBoundingClientRect();
+      // 评论区顶部相对于当前页面顶部的垂直距离
+      const distanceFromTop = sectionRect.top;
+      // 如果评论区顶部在页面高度内
+      if (distanceFromTop > window.innerHeight && distanceFromTop > 0) {
+        // 显示跳转按钮，应用淡入效果
+        scrollButton.style.visibility = "visible";
+        scrollButton.style.opacity = "1";
+        scrollButton.style.transition = "background-color .2s, bottom .3s, opacity .5s, color .3s";
+      } else {
+        // 隐藏跳转按钮，应用淡出效果
+        scrollButton.style.visibility = "hidden";
+        scrollButton.style.opacity = "0";
+        scrollButton.style.transition = "background-color .2s, bottom .3s, visibility 0s .5s, opacity .5s";
+      }
+    }
+  }, 
+  
   registerNavbarEvent: function() {
     var navbar = jQuery('#navbar');
     if (navbar.length === 0) {
