@@ -1,0 +1,866 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前缀和+差分前缀和什么是前缀和，简而言之可以看作数列的前n项之和。 一维前缀和在一维的线性的前缀和完完全全就可以套用数列求和的$$s_{n}$$，这里我们用到的数列通项公式求和为$$s_{n} &#x3D; s_{n-1}+a_{n} (n&gt;1)\s_{0} &#x3D; a_{0}$$根据这个公式我们再把模拟过程在python中用列表的形式去模拟，下面给出一个例题模板 1234567有 N">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithm_knowledge">
+<meta property="og:url" content="http://example.com/2025/03/01/Algorithm-knowledge/index.html">
+<meta property="og:site_name" content="Hyacinth">
+<meta property="og:description" content="前缀和+差分前缀和什么是前缀和，简而言之可以看作数列的前n项之和。 一维前缀和在一维的线性的前缀和完完全全就可以套用数列求和的$$s_{n}$$，这里我们用到的数列通项公式求和为$$s_{n} &#x3D; s_{n-1}+a_{n} (n&gt;1)\s_{0} &#x3D; a_{0}$$根据这个公式我们再把模拟过程在python中用列表的形式去模拟，下面给出一个例题模板 1234567有 N">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oi-wiki.org/basic/images/prefix-sum-2d.svg">
+<meta property="article:published_time" content="2025-03-01T15:09:49.000Z">
+<meta property="article:modified_time" content="2025-03-01T15:25:52.726Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="前缀和+差分">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://oi-wiki.org/basic/images/prefix-sum-2d.svg">
+  
+  
+  
+  <title>Algorithm_knowledge - Hyacinth</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"dSBDwVALa3ATTUaTPVZCUmxn-gzGzoHsz","app_key":"bgxcaFzMdkCiBvBtTaigCPoi","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title">Hyacinth&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/nezha.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Algorithm_knowledge"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-01 23:09" pubdate>
+          2025年3月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Algorithm_knowledge</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="前缀和-差分"><a href="#前缀和-差分" class="headerlink" title="前缀和+差分"></a>前缀和+差分</h1><h2 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h2><p>什么是前缀和，简而言之可以看作数列的前n项之和。</p>
+<h3 id="一维前缀和"><a href="#一维前缀和" class="headerlink" title="一维前缀和"></a>一维前缀和</h3><p>在一维的线性的前缀和完完全全就可以套用数列求和的$$s_{n}$$，这里我们用到的数列通项公式求和为<br>$$<br>s_{n} &#x3D; s_{n-1}+a_{n} (n&gt;1)\<br>s_{0} &#x3D; a_{0}<br>$$<br>根据这个公式我们再把模拟过程在python中用列表的形式去模拟，下面给出一个例题模板</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css">有 N 个的正整数放到数组 <span class="hljs-selector-tag">A</span> 里，现在要求一个新的数组 <span class="hljs-selector-tag">B</span>，新数组的第 <span class="hljs-selector-tag">i</span> 个数 <span class="hljs-selector-tag">B</span><span class="hljs-selector-attr">[i]</span> 是原数组 <span class="hljs-selector-tag">A</span> 第 <span class="hljs-number">0</span> 到第 <span class="hljs-selector-tag">i</span> 个数的和。<br><br>输入：<br><span class="hljs-number">5</span><br><span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br>输出：<br><span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">6</span> <span class="hljs-number">10</span> <span class="hljs-number">15</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())<br>num  = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,<span class="hljs-built_in">input</span>().split()))<br>sum_list = [<span class="hljs-number">0</span>]*n<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(num)):<br>    <span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:<br>        sum_list[<span class="hljs-number">0</span>] = num[<span class="hljs-number">0</span>]<br>    sum_list[i] = sum_list[i-<span class="hljs-number">1</span>]+num[i]<br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> sum_list:<br>    <span class="hljs-built_in">print</span>(j,end=<span class="hljs-string">&#x27; &#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>时间复杂度为$$o(n)$$</p>
+<p>在python的itertools库中，有一个accumulate函数刚好实现的就是这个前缀和的功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> itertools<br>n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>()) <span class="hljs-comment">#这里的n纯属是因为题目需要保留</span><br>num  = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,<span class="hljs-built_in">input</span>().split()))<br>sum_list = itertools.accumulate(num)<br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> sum_list:<br>    <span class="hljs-built_in">print</span>(j,end=<span class="hljs-string">&#x27; &#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="二维或者多维的前缀和"><a href="#二维或者多维的前缀和" class="headerlink" title="二维或者多维的前缀和"></a>二维或者多维的前缀和</h3><p>接着我们再来看一下二维的，可以直接用容斥原理来进行计算。</p>
+<p>考虑一个具体的例子。</p>
+<p><img src="https://oi-wiki.org/basic/images/prefix-sum-2d.svg" srcset="/img/loading.gif" lazyload alt="二位前缀和示例"></p>
+<p>这里 $$s$$是给定矩阵 $$A$$<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" srcset="/img/loading.gif" lazyload alt="A"> 的前缀和。根据定义, $$S_{3,3}$$ 是左图中虚线方框中的子矩阵的和。这里,  $$S_{3,2}$$是蓝色子矩阵的和，<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" srcset="/img/loading.gif" lazyload alt="S_{2,3}"> $$S_{2,3}$$是红色子矩阵的和，它们重叠部分的和是 $$S_{2,2}$$<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" srcset="/img/loading.gif" lazyload alt="S_{2,2}">。由此可见，如果直接相加 $$S_{3,2}$$和 $$S_{2,3}$$<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" srcset="/img/loading.gif" lazyload alt="S_{2,3}">，会重复计算 $$S_{2,2}$$，所以应该有<br>$$<br>S_{3,3}&#x3D;A_{3,3}+S_{2,3}+S_{3,2}-S_{2,2}<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#下面是模拟写的一个二维前缀和的代码 自己写的可能有些丑陋</span><br>n,m = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,<span class="hljs-built_in">input</span>().split())<br>rectangle = <span class="hljs-built_in">list</span>()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>    sample = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,<span class="hljs-built_in">input</span>().split()))<br>    rectangle.append(sample)<br>sum_list = [[<span class="hljs-number">0</span>]*m <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>        <span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> j == <span class="hljs-number">0</span>:<br>            sum_list[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = rectangle[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">elif</span> i == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> j != <span class="hljs-number">0</span>:<br>            sum_list[<span class="hljs-number">0</span>][j] = sum_list[<span class="hljs-number">0</span>][j-<span class="hljs-number">1</span>] + rectangle[<span class="hljs-number">0</span>][j]<br>        <span class="hljs-keyword">elif</span> i != <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> j == <span class="hljs-number">0</span>:<br>            sum_list[i][<span class="hljs-number">0</span>] = sum_list[i-<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]+ rectangle[i][<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">else</span>:<br>            sum_list[i][j] = rectangle[i][j] + sum_list[i-<span class="hljs-number">1</span>][j]+sum_list[i][j-<span class="hljs-number">1</span>]-sum_list[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>]<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="一些模拟练习题"><a href="#一些模拟练习题" class="headerlink" title="一些模拟练习题"></a>一些模拟练习题</h3><h4 id="1-前缀和-前缀和原题链接"><a href="#1-前缀和-前缀和原题链接" class="headerlink" title="1.前缀和 前缀和原题链接 "></a>1.前缀和<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/797/"> 前缀和原题链接 </a></h4><h5 id="题目简要描述"><a href="#题目简要描述" class="headerlink" title="题目简要描述"></a>题目简要描述</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs excel">就是输入一个长度为<span class="hljs-built_in">n</span>的整数序列，再输入m对询问l,r，对于每个询问求出l,r之间的数的和<br>输出格式<br>共 m行，每行输出一个询问的结果。<br>数据范围<br><span class="hljs-number">1</span>≤l≤r≤<span class="hljs-built_in">n</span>,<br><span class="hljs-number">1</span>≤<span class="hljs-built_in">n</span>,m≤<span class="hljs-number">100000</span>,<br>−<span class="hljs-number">1000</span>≤数列中元素的值≤<span class="hljs-number">1000</span><br>输入样例：<br><span class="hljs-number">5</span> <span class="hljs-number">3</span><br><span class="hljs-number">2</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">6</span> <span class="hljs-number">4</span><br><span class="hljs-number">1</span> <span class="hljs-number">2</span><br><span class="hljs-number">1</span> <span class="hljs-number">3</span><br><span class="hljs-number">2</span> <span class="hljs-number">4</span><br>输出样例：<br><span class="hljs-number">3</span><br><span class="hljs-number">6</span><br><span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<p>很显然这个题目和上面例题的思路一样，先求出这一序列的前缀和再根据l,r对应的下标进行相减</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys<br>n,m = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,<span class="hljs-built_in">input</span>().split())<br>l1 = [<span class="hljs-number">0</span>]+<span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,sys.stdin.readline().strip().split()))<br>sum_list = [<span class="hljs-number">0</span>]*(n+<span class="hljs-number">1</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">len</span>(l1)):<br>    sum_list[i] = l1[i] + sum_list[i-<span class="hljs-number">1</span>]<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>    l,r = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,<span class="hljs-built_in">input</span>().split())<br>    <span class="hljs-built_in">sum</span> = sum_list[r] - sum_list[l-<span class="hljs-number">1</span>]<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">sum</span>)<br><span class="hljs-built_in">print</span>(sum_list)<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-二维前缀和796-子矩阵的和"><a href="#2-二维前缀和796-子矩阵的和" class="headerlink" title="2.二维前缀和796. 子矩阵的和 "></a>2.二维前缀和<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/798/">796. 子矩阵的和 </a></h4><h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入一个n行m列的矩阵输入q个询问，每个询问里包含有x1,y1,x2,y2四个整数分别表示左上坐标和右下坐标<br>数据范围<br>1≤n,m≤1000,<br>1≤q≤200000,<br>1≤x1≤x2≤n,<br>1≤y1≤y2≤m,<br>−1000≤矩阵内元素的值≤1000<br>输入<br>3<span class="hljs-number"> 4 </span>3<br>1<span class="hljs-number"> 7 </span>2 4<br>3<span class="hljs-number"> 6 </span>2 8<br>2<span class="hljs-number"> 1 </span>2 3<br>1<span class="hljs-number"> 1 </span>2 2<br>2<span class="hljs-number"> 1 </span>3 4<br>1<span class="hljs-number"> 3 </span>3 4<br>输出样例：<br>17<br>27<br>21<br></code></pre></td></tr></table></figure>
+
+<p>这个题目首先从给的范围来看数不算大，最后的最简的时间复杂度应该是$$o(mn)$$到$$o(q)$$之间</p>
+<p>因为让求子矩阵的和，这里就可以利用上面的二维前缀和的思路先把矩阵的和，进行一个容斥原理的求解。但是根据x1,y1,x2,y2的范围来看，我们上面的给的模板代码可以再美化一下也就是初始化的时候外面都填一圈0即可。然后就是关于最后的子矩阵的所有数之和：这里我们可以通过划分为四块正方形然后通过容斥原理的逆推就可以得到正确的结果。</p>
+<table>
+<thead>
+<tr>
+<th align="center">(x1-1,y1-1)</th>
+<th align="center"></th>
+<th align="center">(x2,y1-1)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center"><em>(x1,y1)</em></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">(x1-1,y2)</td>
+<td align="center"></td>
+<td align="center"><em>(x2,y2)</em></td>
+</tr>
+</tbody></table>
+<p>根据如图所示(<del>实在画不出图来了</del>),为了便于表示前缀和这里直接用坐标进行表示:</p>
+<p>sum &#x3D; (x2,y2)-(x2,y1-1)-(x1-1,y2)+(x1-1,y1-1)</p>
+<p>下面附上代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys<br>n,m,q = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,sys.stdin.readline().strip().split())<br>matrix = [[<span class="hljs-number">0</span>]*(m+<span class="hljs-number">1</span>)]+<span class="hljs-built_in">list</span>([<span class="hljs-number">0</span>]+<span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,sys.stdin.readline().strip().split())) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n))<br>sum_list = <span class="hljs-built_in">list</span>([<span class="hljs-number">0</span>]*(m+<span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n+<span class="hljs-number">1</span>))<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,m+<span class="hljs-number">1</span>):<br>        sum_list[i][j] = matrix[i][j] + sum_list[i][j-<span class="hljs-number">1</span>] + sum_list[i-<span class="hljs-number">1</span>][j] - sum_list[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>]<br><span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(q):<br>    x1,y1,x2,y2 = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,sys.stdin.readline().strip().split())<br>    ans = sum_list[x2][y2] - sum_list[x1-<span class="hljs-number">1</span>][y2] - sum_list[x2][y1-<span class="hljs-number">1</span>] + sum_list[x1-<span class="hljs-number">1</span>][y1-<span class="hljs-number">1</span>]<br>    <span class="hljs-built_in">print</span>(ans)<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h2><p>简而言之可以理解为求知道和求通项，也可以理解为前缀和的逆<br>$$<br>b_{i} &#x3D;\begin{cases}<br> a_{i}-a_{i-1}   (i\in  \left [ 2,n \right ] )<br> \<br>a_{1}  \space\space\space i&#x3D;1<br>\end{cases}<br>$$<br>这里$$a_{i}$$是$$b_{i}$$的前缀和。然后计算$$a_{i}$$的前缀和还可以用$$ \sum_{i&#x3D;1}^{n} (n-i+1) b_{i}$$</p>
+<p>下面先来看到例题</p>
+<h3 id="U69096-前缀和的逆"><a href="#U69096-前缀和的逆" class="headerlink" title="U69096 前缀和的逆"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/U69096">U69096 前缀和的逆</a></h3><h4 id="题目简述"><a href="#题目简述" class="headerlink" title="题目简述"></a>题目简述</h4><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs tap">简单来说就是给一两个输入n,m。其中n代表输入的个数，m代表输入的前缀和，要还原出每一项的数<br>输入<br>6<br>2<span class="hljs-number"> 10 </span>20<span class="hljs-number"> 25 </span>30 43<br>输出<br>2<span class="hljs-number"> 8 </span>10<span class="hljs-number"> 5 </span>5 13<br></code></pre></td></tr></table></figure>
+
+<p>这道题就是套公式比较简单直接放源码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys<br>n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())<br>prefix = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,sys.stdin.readline().strip().split()))<br>origin = [prefix[<span class="hljs-number">0</span>]]+[<span class="hljs-number">0</span>]*(n-<span class="hljs-number">1</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n):<br>    origin[i] = prefix[i] - prefix[i-<span class="hljs-number">1</span>]<br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> origin:<br>    <span class="hljs-built_in">print</span>(j,end=<span class="hljs-string">&#x27; &#x27;</span>)<br><br></code></pre></td></tr></table></figure>
+
+<p>这里python的原因然后跑的时候第二个用例内存超了，换成c++可以跑通</p>
+<h3 id="797-差分"><a href="#797-差分" class="headerlink" title="797. 差分 "></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/799/">797. 差分 </a></h3><h3 id="一维差分"><a href="#一维差分" class="headerlink" title="一维差分"></a>一维差分</h3><p>同减一个常数c，这个操作是首先构造一个差分数组，然后再在新构造的差分数组中$$l$$的位置$$+$$或$$-$$个c，再$$r+1$$的位置$$+$$或$$-$$个c。</p>
+<h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入一个长度为 n的整数序列。接下来输入 m个操作，每个操作包含三个整数 l,r,c，表示将序列中 [l,r]之间的每个数加上 c。<br><br>数据范围<br>1≤n,m≤100000,<br>1≤l≤r≤n,<br>−1000≤c≤1000,<br>−1000≤整数序列中元素的值≤1000<br>输入样例：<br>6 3<br>1<span class="hljs-number"> 2 </span>2<span class="hljs-number"> 1 </span>2 1<br>1<span class="hljs-number"> 3 </span>1<br>3<span class="hljs-number"> 5 </span>1<br>1<span class="hljs-number"> 6 </span>1<br>输出样例：<br>3<span class="hljs-number"> 4 </span>5<span class="hljs-number"> 3 </span>4 2<br></code></pre></td></tr></table></figure>
+
+<p>很显然是一道模板题只要我们按照上述的思路进行一个模拟即可完成</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">n,m = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,(<span class="hljs-built_in">input</span>().strip().split()))<br>array = (<span class="hljs-number">0</span>,)+<span class="hljs-built_in">tuple</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,<span class="hljs-built_in">input</span>().strip().split()))+(<span class="hljs-number">0</span>,)  <br>div = [<span class="hljs-number">0</span>]*(n+<span class="hljs-number">2</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>    div[i] = array[i]-array[i-<span class="hljs-number">1</span>]<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>    l,r,c = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,(<span class="hljs-built_in">input</span>().strip().split()))<br>    div[l] = div[l]+c<br>    div[r+<span class="hljs-number">1</span>] = div[r+<span class="hljs-number">1</span>]-c<br><br>ans = [<span class="hljs-number">0</span>]*(n+<span class="hljs-number">2</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>    ans[i] = ans[i-<span class="hljs-number">1</span>] + div[i]<br><span class="hljs-built_in">print</span>(*ans[<span class="hljs-number">1</span>:-<span class="hljs-number">1</span>]) <br></code></pre></td></tr></table></figure>
+
+<p>有一点需要注意的是*在python中是解包运算符，对容器类型<strong>list,tuple,dict,set</strong>解包，接单来说就是把里面的元素给显示出来</p>
+<p>**对于字典解包的用法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 案例一 解包的元素作为参数传给定义的函数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">myfun</span>(<span class="hljs-params">name,age</span>):<br>	<span class="hljs-built_in">print</span>(name,age)<br>myfun(**dict1)<br>Mogu134 <span class="hljs-number">19</span><br><br><span class="hljs-comment"># 案例二 解包两个字典合为一个字典</span><br>dict2 = &#123;<span class="hljs-string">&#x27;nationality&#x27;</span>:<span class="hljs-string">&#x27;China&#x27;</span>,<span class="hljs-string">&#x27;hobby&#x27;</span>:<span class="hljs-string">&#x27;eating&#x27;</span>&#125;<br><span class="hljs-built_in">print</span>(&#123;**dict1,**dict2&#125;)<br>&#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Mogu134&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">19</span>, <span class="hljs-string">&#x27;nationality&#x27;</span>: <span class="hljs-string">&#x27;China&#x27;</span>, <span class="hljs-string">&#x27;hobby&#x27;</span>: <span class="hljs-string">&#x27;eating&#x27;</span>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>**args是用来收集任意数量的实参，并存入到args元组中</p>
+<p>**kwargs是用来收集任意数量的关键字实参，存到kwargs字典中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">test</span>(<span class="hljs-params">**kwargs</span>):<br>	<span class="hljs-built_in">print</span>(kwargs)	<br>test(time=<span class="hljs-string">&#x27;晚上&#x27;</span>,place=<span class="hljs-string">&#x27;操场&#x27;</span>,activity=<span class="hljs-string">&#x27;团建&#x27;</span>)<br>&#123;<span class="hljs-string">&#x27;time&#x27;</span>: <span class="hljs-string">&#x27;晚上&#x27;</span>, <span class="hljs-string">&#x27;place&#x27;</span>: <span class="hljs-string">&#x27;操场&#x27;</span>, <span class="hljs-string">&#x27;activity&#x27;</span>: <span class="hljs-string">&#x27;团建&#x27;</span>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="差分矩阵"><a href="#差分矩阵" class="headerlink" title="差分矩阵"></a>差分矩阵</h3><h4 id="二维差分"><a href="#二维差分" class="headerlink" title="二维差分"></a>二维差分</h4><p>二维差分数组的公式可以由二维前缀和的公式倒推，</p>
+<p>$$a[i][j] &#x3D; b[i][j]-b[i-1][j]-b[i][j-1]+b[i-1][j-1]$$   </p>
+<p>其中$$b[i][j]$$是$$a[i][j]$$的前缀和数组，可以简化记忆右对角线两顶点减左对角线两顶点(自己根据坐标公式总结的便于记忆)。 </p>
+<p>那么如何让二维差分数组指定区域内的数据同时加或减c</p>
+<p>这里可以简单理解为$$a[x1][y1]+&#x3D;c,a[x2+1][y2+1]+&#x3D;c$$$$a[x1][y2+1]-&#x3D;c,a[x2+1][y1]-&#x3D;c$$</p>
+<p>也就是简而言之就是左上角和右下角加c,左下角和右上角减c。具体的推导可以看[这一篇博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_74215326/article/details/129620912">【学习总结】一、二维前缀和 &amp;&amp; 一、二维差分-CSDN博客</a>)</p>
+<p>内容比较详细</p>
+<p>下面来看到题目练练手</p>
+<h5 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h5><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入一个 n行m列的整数矩阵，再输入 q个操作，每个操作包含五个整数 x1,y1,x2,y2,c，其中(x1,y1)<br>和(x2,y2)表示一个子矩阵的左上角坐标和右下角坐标。每个操作都要将选中的子矩阵中的每个元素的值加上 c。<br>数据范围<br>1≤n,m≤1000,<br>1≤q≤100000,<br>1≤x1≤x2≤n,<br>1≤y1≤y2≤m,<br>−1000≤c≤1000,<br>−1000≤矩阵内元素的值≤1000<br>输入样例：<br>3<span class="hljs-number"> 4 </span>3<br>1<span class="hljs-number"> 2 </span>2 1<br>3<span class="hljs-number"> 2 </span>2 1<br>1<span class="hljs-number"> 1 </span>1 1<br>1<span class="hljs-number"> 1 </span>2<span class="hljs-number"> 2 </span>1<br>1<span class="hljs-number"> 3 </span>2<span class="hljs-number"> 3 </span>2<br>3<span class="hljs-number"> 1 </span>3<span class="hljs-number"> 4 </span>1<br>输出样例：<br>2<span class="hljs-number"> 3 </span>4 1<br>4<span class="hljs-number"> 3 </span>4 1<br>2<span class="hljs-number"> 2 </span>2 2<br></code></pre></td></tr></table></figure>
+
+<p>这道题就是一个单纯的二维差分矩阵的问题，先构造差分矩阵数组，然后再进行区域内的加减，最后再进行前缀和还原</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys<br>n,m,q = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,sys.stdin.readline().strip().split())<br>array = <span class="hljs-built_in">list</span>([[<span class="hljs-number">0</span>]*(m+<span class="hljs-number">2</span>)])<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>    array.append([<span class="hljs-number">0</span>]+<span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,sys.stdin.readline().strip().split()))+[<span class="hljs-number">0</span>])<br>div =[[<span class="hljs-number">0</span>]*(m+<span class="hljs-number">2</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n+<span class="hljs-number">2</span>)]  <br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,m+<span class="hljs-number">1</span>):<br>        div[i][j] = array[i][j] - array[i-<span class="hljs-number">1</span>][j]-array[i][j-<span class="hljs-number">1</span>] + array[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>]<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(q):<br>    x1,y1,x2,y2,c = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,sys.stdin.readline().strip().split())<br>    div[x1][y1] += c<br>    div[x2+<span class="hljs-number">1</span>][y2+<span class="hljs-number">1</span>] += c<br>    div[x1][y2+<span class="hljs-number">1</span>] -= c<br>    div[x2+<span class="hljs-number">1</span>][y1] -=c<br>ans = [[<span class="hljs-number">0</span>]*(m+<span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n+<span class="hljs-number">1</span>)]<br><span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,m+<span class="hljs-number">1</span>):<br>        ans[k][v] = div[k][v]+ans[k-<span class="hljs-number">1</span>][v]+ans[k][v-<span class="hljs-number">1</span>]-ans[k-<span class="hljs-number">1</span>][v-<span class="hljs-number">1</span>]<br>res = ans[<span class="hljs-number">1</span>:]<br><span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> res:<br>    <span class="hljs-built_in">print</span>(*var[<span class="hljs-number">1</span>:])<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C-%E5%B7%AE%E5%88%86/" class="print-no-link">#前缀和+差分</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Algorithm_knowledge</div>
+      <div>http://example.com/2025/03/01/Algorithm-knowledge/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年3月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/02/19/Algorithm/" title="Algorithm_practice1">
+                        <span class="hidden-mobile">Algorithm_practice1</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"dSBDwVALa3ATTUaTPVZCUmxn-gzGzoHsz","appKey":"bgxcaFzMdkCiBvBtTaigCPoi","path":"window.location.pathname","placeholder":"爽言畅谈","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+
+    <!-- 不要格式化 -->
+    <!-- 跳转评论区按钮 -->
+    
+      <a id="scroll-comment-button" aria-label="Comment" href="#conments" role="button">
+        <i class="iconfont icon-pinglun" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+<div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         次
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/DynamicLine.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/star.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
