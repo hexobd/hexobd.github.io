@@ -1,0 +1,924 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="practice 112345678大洋国有两种面值的纸币，面值分别是 m 和 n,m n 互质,现在问你如果有无限多张 m 和 n，最大的不能组成的金额是多少例如说 m n 分别是 4 和 7 时，最大不能组成的金额是 1718&#x3D;1*4+2*719&#x3D;3*4+1*720&#x3D;5*4+0*721&#x3D;0*4+3*7...  这个题目翻译过来就可以理解为 1mx+ny&#x3D;k，给出 m n，求方程不存在非负整数解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithm_practice1">
+<meta property="og:url" content="http://example.com/2025/02/19/Algorithm/index.html">
+<meta property="og:site_name" content="Hyacinth">
+<meta property="og:description" content="practice 112345678大洋国有两种面值的纸币，面值分别是 m 和 n,m n 互质,现在问你如果有无限多张 m 和 n，最大的不能组成的金额是多少例如说 m n 分别是 4 和 7 时，最大不能组成的金额是 1718&#x3D;1*4+2*719&#x3D;3*4+1*720&#x3D;5*4+0*721&#x3D;0*4+3*7...  这个题目翻译过来就可以理解为 1mx+ny&#x3D;k，给出 m n，求方程不存在非负整数解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.dexbug.com/i/2025/02/26/sbxhwy.png">
+<meta property="article:published_time" content="2025-02-19T07:19:12.000Z">
+<meta property="article:modified_time" content="2025-03-01T03:58:24.047Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="一些算法的小练习涉及如何用数学知识解算法，优化算法的思路，和一些动态规划的思想">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.dexbug.com/i/2025/02/26/sbxhwy.png">
+  
+  
+  
+  <title>Algorithm_practice1 - Hyacinth</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"dSBDwVALa3ATTUaTPVZCUmxn-gzGzoHsz","app_key":"bgxcaFzMdkCiBvBtTaigCPoi","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title">Hyacinth&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/nezha.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Algorithm_practice1"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-19 15:19" pubdate>
+          2025年2月19日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          30 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Algorithm_practice1</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="practice-1"><a href="#practice-1" class="headerlink" title="practice 1"></a>practice 1</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs text"><br>大洋国有两种面值的纸币，面值分别是 m 和 n,m n 互质,现在问你如果有无限多张 m 和 n，最大的不能组成的金额是多少<br>例如说 m n 分别是 4 和 7 时，最大不能组成的金额是 17<br>18=1*4+2*7<br>19=3*4+1*7<br>20=5*4+0*7<br>21=0*4+3*7<br>...<br></code></pre></td></tr></table></figure>
+
+<p>这个题目翻译过来就可以理解为</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">mx+<span class="hljs-attribute">ny</span>=k，给出 m n，求方程不存在非负整数解时 k 的最大值<br></code></pre></td></tr></table></figure>
+
+<p>现在乍一看有点像exgcd,因为exgcd是 mx+ny&#x3D;gcd(m,n)一定存在一组解x,y。但是显然和个题目有点不符合。看题目未果直接上一串测试代码进行测试看能否从结果中得到规律</p>
+<p>下面是测试代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">k_max</span>(<span class="hljs-params">m,n</span>):<br>    a_list = <span class="hljs-built_in">list</span>()<br>    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>        <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>            k = m*x+n*y<br>            a_list.append(k)<br>    ans = <span class="hljs-built_in">sorted</span>(a_list)<br>    <span class="hljs-built_in">print</span>(ans)<br>    ans = ans [:-<span class="hljs-number">40</span>]<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(ans)-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">if</span> ans[i]-<span class="hljs-number">1</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> ans:<br>            <span class="hljs-keyword">return</span> ans[i]-<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>能够得到一下的结果数据</p>
+<table>
+<thead>
+<tr>
+<th align="center">m</th>
+<th align="center">n</th>
+<th align="center">value</th>
+<th align="center">k</th>
+<th align="center">m*i</th>
+<th align="center">n*j</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">2*1</td>
+<td align="center">3*0</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">5</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">2*2</td>
+<td align="center">5*0</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">8</td>
+<td align="center">7</td>
+<td align="center">3*1</td>
+<td align="center">5*1</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">7</td>
+<td align="center">18</td>
+<td align="center">17</td>
+<td align="center">4*1</td>
+<td align="center">7*2</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">7</td>
+<td align="center">24</td>
+<td align="center">23</td>
+<td align="center">5*2</td>
+<td align="center">7*2</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">9</td>
+<td align="center">32</td>
+<td align="center">31</td>
+<td align="center">5*1</td>
+<td align="center">9*3</td>
+</tr>
+</tbody></table>
+<p>上面表格中的value值就是k+1,即最大不能组成金额后的最小值。这里因为题目可知，达到最大不能组成金额后，任意的金额都可以有mx+ny来表示。</p>
+<p>看表格中的数据如果只看m×i 和 n×j 看不出来什么，但是如果看m,n,k这三个数值，<del>如果你有绝世的数感</del>,你会发现这三个数满足这个规律k &#x3D; mn -m-n。唔这个真的好像RSA中的phi值的计算虽然但是不知道有无关系。然后经过查阅资料确实在数论中存在这个公式并通过证明(贝祖定理，就当积累一下这个公式)</p>
+<p>问了一下deepseek下面是推到过程，根据方程 k&#x3D;mn−m−n<em>k</em>&#x3D;<em>mn</em>−<em>m</em>−<em>n</em>，我们可以通过以下步骤进行证明和分析：</p>
+<hr>
+<h3 id="关键变形与解的构造"><a href="#关键变形与解的构造" class="headerlink" title="关键变形与解的构造"></a><strong>关键变形与解的构造</strong></h3><ol>
+<li><p><strong>方程变形</strong><br>原方程两边加1：</p>
+<p>k+1&#x3D;mn−m−n+1&#x3D;(m−1)(n−1)<em>k</em>+1&#x3D;<em>mn</em>−<em>m</em>−<em>n</em>+1&#x3D;(<em>m</em>−1)(<em>n</em>−1)</p>
+<p>这表明 <strong>k+1*k*+1 必须能分解为两个整数 (m−1)(*m*−1) 和 (n−1)(*n*−1) 的乘积</strong><a target="_blank" rel="noopener" href="https://www.zybang.com/question/1de090e13c9135105a2ec679e4ea06db.html">9</a><a target="_blank" rel="noopener" href="http://www.doc88.com/p-698220310809.html">13</a>。</p>
+</li>
+<li><p><strong>解的表示</strong><br>若 k+1&#x3D;p⋅q<em>k</em>+1&#x3D;<em>p</em>⋅<em>q</em>（其中 p,q<em>p</em>,<em>q</em> 为整数），则解为：</p>
+<p>m&#x3D;p+1,n&#x3D;q+1<em>m</em>&#x3D;<em>p</em>+1,<em>n</em>&#x3D;<em>q</em>+1</p>
+<p>例如：</p>
+<ul>
+<li>当 k&#x3D;5<em>k</em>&#x3D;5 时，k+1&#x3D;6&#x3D;2×3<em>k</em>+1&#x3D;6&#x3D;2×3，则 m&#x3D;3,n&#x3D;4<em>m</em>&#x3D;3,<em>n</em>&#x3D;4 或 m&#x3D;4,n&#x3D;3<em>m</em>&#x3D;4,<em>n</em>&#x3D;3。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="解的讨论"><a href="#解的讨论" class="headerlink" title="解的讨论"></a><strong>解的讨论</strong></h3><ol>
+<li>整数解的存在性<ul>
+<li>当 k+1<em>k</em>+1 为 <strong>合数</strong> 时，方程有多个整数解（对应不同的因数分解方式）。</li>
+<li>当 k+1<em>k</em>+1 为 <strong>质数</strong> 时，方程仅有有限解（如 m&#x3D;2,n&#x3D;k+2<em>m</em>&#x3D;2,<em>n</em>&#x3D;<em>k</em>+2 或 m&#x3D;k+2,n&#x3D;2<em>m</em>&#x3D;<em>k</em>+2,<em>n</em>&#x3D;2）。</li>
+<li>当 k+1<em>k</em>+1 为 <strong>负数</strong> 时，解可能涉及负整数。例如，若 k&#x3D;−3<em>k</em>&#x3D;−3，则 k+1&#x3D;−2&#x3D;(−1)×2<em>k</em>+1&#x3D;−2&#x3D;(−1)×2，解得 m&#x3D;0,n&#x3D;3<em>m</em>&#x3D;0,<em>n</em>&#x3D;3 或 m&#x3D;3,n&#x3D;0<em>m</em>&#x3D;3,<em>n</em>&#x3D;0。</li>
+</ul>
+</li>
+<li><strong>解的对称性</strong><br>方程具有对称性：若 (m,n)(<em>m</em>,<em>n</em>) 是解，则 (n,m)(<em>n</em>,<em>m</em>) 也是解。例如，(3,4)(3,4) 和 (4,3)(4,3) 均为 k&#x3D;5<em>k</em>&#x3D;5 的解。</li>
+</ol>
+<hr>
+<h3 id="与数论定理的联系"><a href="#与数论定理的联系" class="headerlink" title="与数论定理的联系"></a><strong>与数论定理的联系</strong></h3><ol>
+<li><p><strong>贝祖定理（Bézout’s Identity）的类比</strong><br>原方程 mn−m−n&#x3D;k<em>mn</em>−<em>m</em>−<em>n</em>&#x3D;<em>k</em> 可改写为：</p>
+<p>m(n−1)−n&#x3D;k<em>m</em>(<em>n</em>−1)−<em>n</em>&#x3D;<em>k</em></p>
+<p>这表明 m<em>m</em> 和 n<em>n</em> 需满足特定线性组合关系。若 k<em>k</em> 是 gcd⁡(m,n)gcd(<em>m</em>,<em>n</em>) 的倍数，则方程有解<a target="_blank" rel="noopener" href="http://www.doc88.com/p-698220310809.html">13</a>。</p>
+</li>
+<li><p><strong>最大公约数的应用</strong><br>设 d&#x3D;gcd⁡(m,n)<em>d</em>&#x3D;gcd(<em>m</em>,<em>n</em>)，则方程可表示为：</p>
+<p>d(md⋅nd−md−nd)&#x3D;k<em>d</em>(<em>d**m</em>⋅<em>d**n</em>−<em>d**m</em>−<em>d**n</em>)&#x3D;<em>k</em></p>
+<p>当 d<em>d</em> 能整除 k<em>k</em> 时，方程可能存在整数解。</p>
+</li>
+</ol>
+<p>所最后的exp代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">k_max</span>(<span class="hljs-params">m,n</span>):<br>    <span class="hljs-keyword">return</span> m*n-m-n<br></code></pre></td></tr></table></figure>
+
+<p>这里还有jack_gdn师傅的一个思路</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros">首先来说，28 是一个肯定能拼出来的数，而且有（至少）两种拼法，7<span class="hljs-number">*4</span>+0<span class="hljs-number">*7</span> 或者 0<span class="hljs-number">*4</span>+4<span class="hljs-number">*7</span>。那么如果我想在这个数字上加1或者减1怎么弄？观察发现2<span class="hljs-number">*4</span>-1<span class="hljs-number">*7</span>=1，3<span class="hljs-number">*7</span>-5<span class="hljs-number">*4</span>=1，也就是说如果我想让这个数字减去1，就可以放进去一个7拿走两个4，或者放进去五个4拿走三个7。这几个系数都可以在 O(m) 和 O(n) 的时间内遍历出来，所以对于一个数，如果这个数既不能拿走两个4，也不能拿走三个7，那么比它小的数中肯定有不能用 4 和 7 组成的数字。那么既不能拿走两个4，又不能拿走三个7，而且这个数尽可能大，那么应该是多少呢？那就是刚好有一个4和两个7，也就是18，那么比 18 小 1 的 17 就刚好是最大的不能用 4 和 7 组合的数。推广一下就是，刚好不能用 m 和 n 组成的最大数 k 可以表示为 (x-1)n+(y-1)m-1，其中 x, y 分别为方程<br>ay-xn-1, <span class="hljs-attribute">bx-my</span>=1 的最小非负整数解<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="6135-奶牛体检-原题链接"><a href="#6135-奶牛体检-原题链接" class="headerlink" title="6135. 奶牛体检 | 原题链接"></a>6135. 奶牛体检 | <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/6138/">原题链接</a></h2><h3 id="题目简要描述"><a href="#题目简要描述" class="headerlink" title="题目简要描述"></a>题目简要描述</h3><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入有3行，第一行是一个整数 n，第二行和第三个各自有 n 个用空格分割的整数，第二行表示原序列，第三行表示目标序列。现在可以执行一次操作，就是在原序列中选出 l 和 r 两个位置，然后将这个区间内的元素倒过来，这时候得到一个新序列，新序列和目标序列中可能会有对应位置的元素相等。(l,r) 被称为使新序列与目标序列中有 n 个元素对应位置相等的方法，现在需要你输出 n+1 行，第 i 行表示使新序列与目标序列中有 i-1个元素对应位置相等的方法数量。l 和 r 可以相等，<br>输入样例1<br>3<br>1<span class="hljs-number"> 3 </span>2<br>3<span class="hljs-number"> 2 </span>1<br>输出样例1：<br>3<br>3<br>0<br>0<br>当 (l,r) 为 (1,1) (2,2) (3,3) 时，新序列中不会与目标序列对应位置元素相等，(1,2) (2,3) (1,3) 均可以有一个对应位置元素相等，没有方法能够使新序列与目标序列中有<span class="hljs-number"> 2 </span>个或<span class="hljs-number"> 3 </span>个对应位置元素相等。<br><br>输入样例2：<br>3<br>1<span class="hljs-number"> 2 </span>3<br>1<span class="hljs-number"> 2 </span>3<br>输出样例2：<br>0<br>3<br>0<br>3<br><br>输入样例3：<br>7<br>1<span class="hljs-number"> 3 </span>2<span class="hljs-number"> 2 </span>1<span class="hljs-number"> 3 </span>2<br>3<span class="hljs-number"> 2 </span>2<span class="hljs-number"> 1 </span>2<span class="hljs-number"> 3 </span>1<br>输出样例3：<br>0<br>6<br>14<br>6<br>2<br>0<br>0<br>0<br><br>1&lt;=l&lt;=r&lt;=n<br>数据范围1≤N≤7500<br></code></pre></td></tr></table></figure>
+
+<p>再把描述优化一下就是说要写出第i行，i-1个元素，两个序列a[i]&#x3D;&#x3D;b[i] 的方法的个数。</p>
+<h3 id="解题过程"><a href="#解题过程" class="headerlink" title="解题过程"></a>解题过程</h3><p>很容易想到进行枚举，我最开始是这样的想，先把输入的数据转换成[0]+list的形式，按照正常的顺序从左向右以此遍历l,r然后进行顺序的转换，最后把得到的顺序转换到一个新的空列表里，最后再用lambda函数对应列元素相减看元素0的个数，但是因为你存到空列表这个过程中，实际上已经存了个 $$o(n^2)$$的时间复杂度的程序，然后lambda函数又是一个$$o(n)$$的时间复杂度的程序，最后下来是个$$o(n^3)$$的一个程序。因为这个数据范围的因素，$$o(n^3)$$程序应该很容易不通过，因此要想着如何进行优化这个算法。但是冥思苦想没有思路，不知道从哪里下手，中间Jack_GDN师傅给了个提示就是<strong>降低时间复杂度的关键是减少重复和不必要操作的次数</strong> 这是个比较重要的点。我们只需针对重复的步骤进行删减冗余就可以优化代码。在整个过程中会发现<strong>l&#x3D;2,r&#x3D;3</strong>时(2,3)的位置交换一次顺序，当<strong>l&#x3D;1,r&#x3D;4</strong>时(2,3)又重复操作交换了一次顺序，当<strong>l&#x3D;1,r&#x3D;5</strong>时也是同理(这里需要体会一下重复的含义)。</p>
+<p>这样的话我们遍历的时候就可以不用从头到尾遍历，而是根据中间向两边扩展的一种思路去写就可以避免重复操作的问题。当然这里需要考虑奇数和偶数分开讨论。</p>
+<p>对于如何计数，我们可以先考虑一个问题，就是题目是要找新序列和目标序列中a[i]&#x3D;b[i]的不同个数的方法数，那么就不妨直接在原序列上进行一个修改。先统计出原序列的 a[i]&#x3D;b[i] 的个数，然后再通过从中间向两边不断扩散得到的序列进行一个叠加(这里是学习了一下wp的思路)</p>
+<p>其中：a[l]&#x3D;b[l] ，a[r]&#x3D;b[r]为减一，a[l]&#x3D;b[r],a[r]&#x3D;b[l]为加一。于是就有下面的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict<br>n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())<br>origin = [<span class="hljs-number">0</span>]+<span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,<span class="hljs-built_in">input</span>().split())) <br>target = [<span class="hljs-number">0</span>]+<span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,<span class="hljs-built_in">input</span>().split()))<br><br>ans = defaultdict(<span class="hljs-built_in">int</span>) <span class="hljs-comment">#这个是默认字典，里面带int类型是便于计数，默认ans[i]=0</span><br><br>count = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">if</span> origin[i] == target[i]:<br>        count +=<span class="hljs-number">1</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>):<br>    <span class="hljs-comment">#奇数的情况</span><br>    l,r = i,i  <span class="hljs-comment">#从中间的同一个点向两侧</span><br>    sum_odd = count<br>    <span class="hljs-keyword">while</span> l &gt;=<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> r &lt;= n:<br>        sum_odd +=  (origin[l]==target[r])+(origin[r]==target[l])-(origin[l]==target[l])-(origin[r]==target[r])<br>        ans[sum_odd] += <span class="hljs-number">1</span> <span class="hljs-comment">#记录同一种的情况的方法数</span><br>        r += <span class="hljs-number">1</span><br>        l -= <span class="hljs-number">1</span><br>    <br>    <span class="hljs-comment">#偶数的情况</span><br>    l,r = i-<span class="hljs-number">1</span>,i <br>    sum_even = count<br>    <span class="hljs-keyword">while</span> l &gt;=<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> r &lt;= n:<br>        sum_even +=  (origin[l]==target[r])+(origin[r]==target[l])-(origin[l]==target[l])-(origin[r]==target[r])<br>        ans[sum_even] += <span class="hljs-number">1</span> <span class="hljs-comment">#记录同一种的情况的方法数</span><br>        r+=<span class="hljs-number">1</span><br>        l -=<span class="hljs-number">1</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n+<span class="hljs-number">1</span>):<br>    <span class="hljs-built_in">print</span>(ans[i])<br></code></pre></td></tr></table></figure>
+
+<h2 id="最大正方形原题链接"><a href="#最大正方形原题链接" class="headerlink" title="最大正方形原题链接"></a>最大正方形<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1387">原题链接</a></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述:"></a>题目描述:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">在一个 n×m 的只包含 <span class="hljs-number">0</span> 和 <span class="hljs-number">1</span> 的矩阵里找出一个不包含 <span class="hljs-number">0</span> 的最大正方形，输出边长。<br>输入<br><span class="hljs-number">4</span> <span class="hljs-number">4</span>  <span class="hljs-comment">#n和m</span><br><span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span><br>输出： <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<p>这个题目最开始是想着练习二维前缀和的，但是出乎意料的不太行。因为最开始根据这个二维矩阵能把每个对应位置的值给算出来，然后根据这个值本来想着是通过判断是否为平方数进行一个计数，显然这里会忽略掉不是正方形但是前缀和也是平方数的情况，这样的话就会误算。因此单纯从前缀和去判断最大正方形的边长是走不通的。<del>(这里还傻傻的思考了好久如何解决，试了好几种方法，比如说拿i,j的最大值当成可能存在的最大边然后进行倒着遍历求边长，当然最后还是出现了上面的问题。)</del></p>
+<p>最后实在没辙，看了一眼wp,竟然是用了动态规划,Orz!  不太会，只好先硬着头皮把这道题所涉及的动态规划的思路理一下。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>通过确定一个极大的正方形，向上，向左，左上进行一个逐步寻找其解的合理性的结果。具体的一个推到过程就直接粘了wp中的过程了</p>
+<p><img src="https://img.dexbug.com/i/2025/02/26/sbxhwy.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<p>这里需要注意下，就是这里的状态方程直接套用数字逻辑中触发器比较好理解，就是找次态和现态之间的关系。<br>$$<br>次态 &#x3D; x的最小值+所处极大值点的值<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys <br>n, m = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, sys.stdin.readline().strip().split())  <br>rectangle = [<span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, sys.stdin.readline().strip().split())) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>target = [rectangle[<span class="hljs-number">0</span>]] + [[i[<span class="hljs-number">0</span>]] + [<span class="hljs-number">0</span>] * (m - <span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> rectangle[<span class="hljs-number">1</span>:]]<br>ans = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,m):<br>        <span class="hljs-keyword">if</span> rectangle[i][j]:<br>            target[i][j] = rectangle[i][j] + <span class="hljs-built_in">min</span>(target[i-<span class="hljs-number">1</span>][j],target[i][j-<span class="hljs-number">1</span>],target[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>])<br>            ans = <span class="hljs-built_in">max</span>(ans,target[i][j])<br><span class="hljs-built_in">print</span>(ans)<br></code></pre></td></tr></table></figure>
+
+<h2 id="哞叫时间II"><a href="#哞叫时间II" class="headerlink" title="哞叫时间II"></a>哞叫时间II</h2><p>emm这个题纯属是千呼万唤始出来的感觉。</p>
+<h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs excel">输入<span class="hljs-built_in">n</span>,和一个<span class="hljs-built_in">n</span>列的整数序列，要找到这个整数序列中存在abb形式的个数<br>数据范围<br><span class="hljs-number">1</span>≤<span class="hljs-built_in">N</span>≤<span class="hljs-number">10</span>^<span class="hljs-number">6</span>,<br><span class="hljs-number">1</span>≤ai≤<span class="hljs-built_in">N</span><br>输入样例：<br><span class="hljs-number">6</span><br><span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">4</span> <span class="hljs-number">4</span><br>输出样例：<br><span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+<p>这个题目最简单的思路是直接三层循环遍历去找，但是根据数据范围来说$$o(n^3)$$的时间复杂度有点高，需要降到$$o(nlogn)$$或者是$$o(n)$$的形式才可以。因此需要进行优化，这就需要看操作重复的部分了。(这个感觉比较难理解)，就是从以下的样例来看</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-number">7</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">4</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
+
+<p>这里要是正着数的的话我们可能会遇到遍历过第一个2之后再遍历一遍2的情况，这步属于冗余部分，因此为了避免这个我们要考虑从后遍历找到两个一样的即可。但是这里还会出现一个情况就是我们需要考虑前面有与自身重复和其他遍历的数例如上面样例中的2这种重复两种因素。我们肯定是要减掉重复的数据。</p>
+<p>这里可以分两步步走: 1. 就是先找不与自身重复的数的种类，这里我们可以用<strong>列表</strong>或者<strong>字典</strong>去存储截止到当前数目不同的数字的个数。这里的个数可以直接用集合的长度去表示</p>
+<p>2.对于与自身重复的种类的情况来说，因为采用了集合去计算不同数字的个数，那么直接等价为当倒数第二个数前还有与自己重复的数，与自己重复数的最多只有一个，直接减去即可。</p>
+<p>对于整个框架来说，我们还需要统计出每个数字的个数用来判断遍历到倒数第二个a之前,前面是否还有重复的a</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter,defaultdict<br>n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())<br>m = <span class="hljs-built_in">tuple</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>,<span class="hljs-built_in">input</span>().strip().split()))<br>dif = <span class="hljs-built_in">set</span>()<br>var = <span class="hljs-built_in">dict</span>()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):  <span class="hljs-comment">#计算截止到当前为止，不同的数的个数</span><br>    var[i] = <span class="hljs-built_in">len</span>(dif)<br>    dif.add(m[i])<br>cnt1 = Counter(m)   <span class="hljs-comment">#统计出每个数的个数</span><br>cnt = defaultdict(<span class="hljs-built_in">int</span>)  <span class="hljs-comment">#用来倒着统计</span><br>ans = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>): <br>    cnt[m[j]] += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">if</span> cnt[m[j]] ==<span class="hljs-number">2</span>:<br>        lenghth = var[j]<br>        <span class="hljs-keyword">if</span> cnt1[m[j]] &gt; <span class="hljs-number">2</span>:<br>            lenghth -= <span class="hljs-number">1</span>   <span class="hljs-comment">#减去重复的数</span><br>        ans += lenghth<br><span class="hljs-built_in">print</span>(ans)<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%B8%80%E4%BA%9B%E7%AE%97%E6%B3%95%E7%9A%84%E5%B0%8F%E7%BB%83%E4%B9%A0%E6%B6%89%E5%8F%8A%E5%A6%82%E4%BD%95%E7%94%A8%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E8%A7%A3%E7%AE%97%E6%B3%95%EF%BC%8C%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%9D%E8%B7%AF%EF%BC%8C%E5%92%8C%E4%B8%80%E4%BA%9B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E6%80%9D%E6%83%B3/" class="print-no-link">#一些算法的小练习涉及如何用数学知识解算法，优化算法的思路，和一些动态规划的思想</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Algorithm_practice1</div>
+      <div>http://example.com/2025/02/19/Algorithm/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月19日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/27/%E6%A8%A1%E6%8B%9F%E7%81%AB%E8%BD%A6%E5%AE%A2%E8%BF%90%E8%B4%A7%E8%BF%90%E7%B3%BB%E7%BB%9F/" title="模拟火车客运货运系统">
+                        <span class="hidden-mobile">模拟火车客运货运系统</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"dSBDwVALa3ATTUaTPVZCUmxn-gzGzoHsz","appKey":"bgxcaFzMdkCiBvBtTaigCPoi","path":"window.location.pathname","placeholder":"爽言畅谈","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+
+    <!-- 不要格式化 -->
+    <!-- 跳转评论区按钮 -->
+    
+      <a id="scroll-comment-button" aria-label="Comment" href="#conments" role="button">
+        <i class="iconfont icon-pinglun" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+<div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         次
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/DynamicLine.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/star.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
